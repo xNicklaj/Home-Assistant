@@ -1,3 +1,4 @@
+package it.edu.majoranapa;
 
 public class Main {
 
