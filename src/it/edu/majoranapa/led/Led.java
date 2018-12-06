@@ -1,23 +1,15 @@
 package it.edu.majoranapa.led;
 
+/**
+ * @author Simone Aronica
+ *
+ */
 public class Led {
-	/**
-	 * 	The led class lets the user create a bind to a single led.
-	 * 	attributes:
-	 * 		- int_intensity: int
-	 * 		- hex_intensity: int
-	 * 	methods:
-	 * 		+ Led(intensity: int)
-	 * 		+ setIntensity(intensity: int): boolean
-	 * 		+ setIntensity(intensity: String): boolean
-	 * 		+ getIntIntensity(): int
-	 * 		+ getHexIntensity(): String
-	 */
 	private int int_intensity = 0; 
 	private String hex_intensity = "00"; 
 	
 	/**
-	 * @param intensity
+	 * @param
 	 * This method requires an int parameter containing the integer intensity - 0 to 255 - and
 	 * sets the led intensity based on the input parameter.
 	 */
@@ -30,9 +22,11 @@ public class Led {
 	}
 	
 	/**
-	 * @param intensity
+	 * @param
 	 * This method requires an int parameter containing the integer intensity - 0 to 255 - and
-	 * sets the led intensity based on the input parameter. It returns false if everything worked correctly.
+	 * sets the led intensity based on the input parameter. 
+	 * @return
+	 * It returns false if everything worked correctly.
 	 */
 	public boolean setIntensity(int intensity)	
 	{
@@ -42,10 +36,11 @@ public class Led {
 	}
 
 	/**
-	 * @param intensity
-	 * @return
+	 * @param 
 	 * This method requires a String parameter containing the hex intensity - 00 to ff - and
-	 * sets the led intensity based on the input parameter. It returns false if everything worked correctly.
+	 * sets the led intensity based on the input parameter.
+	 * @return
+	 * It returns false if everything worked correctly.
 	 */
 	public boolean setIntensity(String intensity)	
 	{
