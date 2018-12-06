@@ -9,9 +9,8 @@ public class Led {
 	private String hex_intensity = "00"; 
 	
 	/**
-	 * @param
-	 * This method requires an int parameter containing the integer intensity - 0 to 255 - and
-	 * sets the led intensity based on the input parameter.
+	 * @param intensity
+	 * 		Int parameter containing the integer intensity - 0 to 255 -
 	 */
 	public Led(int intensity) 
 	{
@@ -22,11 +21,10 @@ public class Led {
 	}
 	
 	/**
-	 * @param
-	 * This method requires an int parameter containing the integer intensity - 0 to 255 - and
-	 * sets the led intensity based on the input parameter. 
+	 * @param intensity
+	 * 		Int parameter containing the integer intensity - 0 to 255 -
 	 * @return
-	 * It returns false if everything worked correctly.
+	 * 		It returns false if everything is working correctly
 	 */
 	public boolean setIntensity(int intensity)	
 	{
@@ -36,11 +34,10 @@ public class Led {
 	}
 
 	/**
-	 * @param 
-	 * This method requires a String parameter containing the hex intensity - 00 to ff - and
-	 * sets the led intensity based on the input parameter.
+	 * @param intensity
+	 * 		String parameter containing the hex intensity - 00 to ff -
 	 * @return
-	 * It returns false if everything worked correctly.
+	 * 		It returns false if everything worked correctly.
 	 */
 	public boolean setIntensity(String intensity)	
 	{
@@ -57,7 +54,7 @@ public class Led {
 	
 	/**
 	 * @return
-	 * This method returns the led intensity as an int.
+	 * 		This method returns the led intensity as an int.
 	 */
 	public int getIntIntensity()
 	{
@@ -66,7 +63,7 @@ public class Led {
 	
 	/**
 	 * @return
-	 * This method returns the led Intensity as a hex String.
+	 * 		This method returns the led Intensity as a hex String.
 	 */
 	public String getHexIntensity()
 	{
