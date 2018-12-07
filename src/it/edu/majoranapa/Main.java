@@ -1,4 +1,7 @@
-package it.edu.majoranapa.timers;
+package it.edu.majoranapa;
+
+import it.edu.majoranapa.timers.VirtualTimer;
+import it.edu.majoranapa.timers.*;
 
 public class Main {
 	private static VirtualTimer timer = new VirtualTimer();
