@@ -12,6 +12,11 @@ public class PlayAudio {
 		this.pthFile = x;
 	}
 	
+	public void setPath(String path)
+	{
+		this.pthFile = path;
+	}
+	
 	public void run()
 	{
 		try 
