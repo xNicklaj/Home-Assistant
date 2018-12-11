@@ -8,6 +8,6 @@ public class Task_PlayAlarm extends TimerTask{
 	
 	public void run()
 	{
-		session = new PlayAudio("D:/users/simon/GitHub/Home-Assistant/resources/AlarmTone.wav");
+		session = new PlayAudio("../resources/AlarmTone.wav");
 	}
 }
