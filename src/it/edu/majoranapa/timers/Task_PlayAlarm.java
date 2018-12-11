@@ -9,5 +9,6 @@ public class Task_PlayAlarm extends TimerTask{
 	public void run()
 	{
 		session = new PlayAudio("../resources/AlarmTone.wav");
+		return;
 	}
 }

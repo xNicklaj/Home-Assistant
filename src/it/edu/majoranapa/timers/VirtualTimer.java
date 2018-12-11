@@ -30,6 +30,7 @@ public class VirtualTimer extends Thread{
 	public void run()
 	{
 		this.playTask();
+		return;
 	}
 	
 }

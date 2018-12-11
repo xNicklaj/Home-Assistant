@@ -17,7 +17,7 @@ public class PlayAudio {
 		this.pthFile = path;
 	}
 	
-	public void run()
+	public void startAudio()
 	{
 		try 
 		{
@@ -41,5 +41,12 @@ public class PlayAudio {
 		finally {
 			System.out.println("Fine");
 		}
+		return;
+	}
+	
+	public void run()
+	{
+		this.startAudio();
+		return;
 	}
 }
