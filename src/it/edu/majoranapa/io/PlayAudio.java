@@ -5,7 +5,7 @@ import javax.sound.sampled.*;
 
 
 public class PlayAudio {
-	String pthFile;
+	private String pthFile;
 	
 	public PlayAudio(String x)
 	{
@@ -24,12 +24,12 @@ public class PlayAudio {
 			Clip clip = AudioSystem.getClip();
 			File f = new File(this.pthFile);
 
-			if(!f.exists())
+			if(!f.isFile())
 			{
 				System.err.println("Error: file not found!!");
 				return;
 			}
-			AudioInputStream inStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
+			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
 	        clip.open(inStream);
 	        clip.start(); 
 			while(clip.isActive());
@@ -37,9 +37,6 @@ public class PlayAudio {
 		catch (LineUnavailableException | UnsupportedAudioFileException | IOException e)
 		{
 			e.printStackTrace();
-		}
-		finally {
-			System.out.println("Fine");
 		}
 		return;
 	}
