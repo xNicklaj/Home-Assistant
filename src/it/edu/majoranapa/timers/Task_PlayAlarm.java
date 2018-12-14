@@ -1,14 +1,17 @@
 package it.edu.majoranapa.timers;
 
-import it.edu.majoranapa.Main;
 import it.edu.majoranapa.io.*;
 import java.util.TimerTask;
 
 public class Task_PlayAlarm extends TimerTask{
 	private PlayAudio session;
 	private String tone = "AlarmTone.wav";
-	private static PathFinder finder = new PathFinder(Main.class.getResource(Main.class.getSimpleName() + ".class").toString());
+	private static PathFinder finder = new PathFinder();
 	
+	/**
+	 * @override of the run() method inherited from TimerTask.
+	 * It starts the requested Alarm Tone.
+	 */
 	public void run()
 	{
 		session = new PlayAudio(finder.getResourcePath(tone));
@@ -17,6 +20,11 @@ public class Task_PlayAlarm extends TimerTask{
 		return;
 	}
 	
+	/**
+	 * This method allows to choose the alarm tone file name.
+	 * @param tone
+	 * Alarm Tone File name as a String.
+	 */
 	public void setTone(String tone)
 	{
 		this.tone = tone;

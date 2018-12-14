@@ -7,7 +7,7 @@ public class Main {
 	
 	public static void main(String[] args) 
 	{	
-		timer.setDelay(5000);
+		timer.setDelay(5);
 		timer.start();
 		return;
 	}

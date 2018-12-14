@@ -5,18 +5,32 @@ import javax.sound.sampled.*;
 
 
 public class PlayAudio {
-	private String pthFile;
+	private String pthFile = "";
 	
-	public PlayAudio(String x)
+	/**
+	 * This is the constructor of the class.
+	 * @param fileName
+	 * This is the path of the file that needs to be played.
+	 * It can also be changed from .setPath().
+	 */
+	public PlayAudio(String filePath)
 	{
-		this.pthFile = x;
+		this.pthFile = filePath;
 	}
 	
-	public void setPath(String path)
+	/**
+	 * Use this method to set the name of the file to play.
+	 * @param path
+	 * This is the path of the file that needs to be played.
+	 */
+	public void setPath(String filePath)
 	{
-		this.pthFile = path;
+		this.pthFile = filePath;
 	}
 	
+	/**
+	 * Use this method to start the audio.
+	 */
 	public void startAudio()
 	{
 		try 
@@ -38,12 +52,6 @@ public class PlayAudio {
 		{
 			e.printStackTrace();
 		}
-		return;
-	}
-	
-	public void run()
-	{
-		this.startAudio();
 		return;
 	}
 }
