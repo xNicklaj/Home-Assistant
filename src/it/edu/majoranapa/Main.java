@@ -1,15 +1,13 @@
 package it.edu.majoranapa;
 
-import it.edu.majoranapa.timers.*;
-
 public class Main {
-	private static VirtualTimer timer = new VirtualTimer();
+	private static Console CUI = new Console();
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws InterruptedException 
 	{	
-		timer.setDelay(5);
-		timer.start();
-		return;
+		
+		while(CUI.newCommand() != -2)
+			System.out.println("return: " + CUI.getLastReturnValue());
 	}
 
 }
