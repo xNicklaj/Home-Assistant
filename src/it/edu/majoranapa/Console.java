@@ -9,6 +9,16 @@ public class Console {
 	private String command = "";
 	private Scanner scan;
 	
+	/**
+	 * This method helps by getting a certain passed parameter.
+	 * @param param
+	 * Parameter to look for.
+	 * @return
+	 * String containing the value of the parameter.
+	 * Example:
+	 * In the command "timer start delay=4",
+	 * The return string will be "4".
+	 */
 	private String getParam(String param)
 	{
 		if(command.contains(param))
@@ -24,6 +34,13 @@ public class Console {
 		return "";
 	}
 
+	/**
+	 * This method handles timers.
+	 * @return
+	 * It returns -1 if there has been an error, and 0 if
+	 * everything works correctly.
+	 * @throws InterruptedException
+	 */
 	private int timer() throws InterruptedException
 	{
 		VirtualTimer timer = new VirtualTimer();
@@ -46,21 +63,46 @@ public class Console {
 		return 0;
 	}
 
+	/**
+	 * This is a class Constructor.
+	 */
 	public Console()
 	{
+		super();
 		scan = new Scanner(System.in);
 	}
 	
+	/**
+	 * This method returns an integer containing the return
+	 * value of the last command.
+	 * @return
+	 * Return value of the last command.
+	 */
 	public int getLastReturnValue()
 	{
 		return this.lastReturnValue;
 	}
 	
+	/**
+	 * This method returns a string containing the last
+	 * requested command.
+	 * @return
+	 * Last requested command.
+	 */
 	public String getLastCommand()
 	{
 		return lastCommand; 
 	}
 	
+	/**
+	 * This method is the actual console function that allows the user to insert a new command.
+	 * @return
+	 * This method returns -2 as exit value, 0 as a working value, or
+	 * -1 as error value.
+	 * @throws InterruptedException
+	 * Might throw an exception due to timers threaded nature.
+	 * Anyways, it should be checked automatically.
+	 */
 	public int newCommand() throws InterruptedException
 	{
 		lastCommand = command;
@@ -75,6 +117,10 @@ public class Console {
 		return 0;
 	}
 	
+	/**
+	 * Use this method to finally close the console.
+	 * Note: After being closed you will have to allocate a new console Object.
+	 */
 	public void close()
 	{
 		scan.close();
