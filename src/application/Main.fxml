@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="900" prefWidth="1600" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Line endX="1499.0" layoutX="101.0" layoutY="777.0" startX="-100.0" />
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="1478.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/Asset%201.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
