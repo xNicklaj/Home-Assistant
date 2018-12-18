@@ -20,6 +20,11 @@ public class PathFinder {
 		
 		return true;
 	}
+	
+	public void nulla()
+	{
+		
+	}
 
 	private void evaluatePath()
 	{
