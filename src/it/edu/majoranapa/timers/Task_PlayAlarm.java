@@ -4,9 +4,9 @@ import it.edu.majoranapa.io.*;
 import java.util.TimerTask;
 
 public class Task_PlayAlarm extends TimerTask{
-	private PlayAudio session;
-	private String tone = "AlarmTone.wav";
-	private static PathFinder finder = new PathFinder();
+	protected PlayAudio session;
+	protected String tone = "AlarmTone.wav";
+	protected static PathFinder finder = new PathFinder();
 	
 	/**
 	 * @override of the run() method inherited from TimerTask.

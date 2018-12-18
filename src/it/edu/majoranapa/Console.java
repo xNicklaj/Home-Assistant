@@ -62,6 +62,17 @@ public class Console {
 	
 		return 0;
 	}
+	
+	private int alarm()
+	{
+		TimeBased_Alarms alarm = new TimeBased_Alarms();
+		if(command.contains("getInfo"))
+		{
+			alarm.printOut();
+		}
+		
+		return 0;
+	}
 
 	/**
 	 * This is a class Constructor.
@@ -108,8 +119,16 @@ public class Console {
 		lastCommand = command;
 		command = scan.nextLine();
 		
+		/*
+		 * Commands:
+		 * 	start delay=n
+		 * 	stop
+		 */
 		if(command.contains("timer"))
 			return timer();
+		
+		if(command.contains("alarm"))
+			return alarm();
 		
 		if(command.contains("exit"))
 			return -2;
