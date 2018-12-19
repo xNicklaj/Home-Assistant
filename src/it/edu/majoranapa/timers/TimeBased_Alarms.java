@@ -1,19 +1,55 @@
 package it.edu.majoranapa.timers;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
-public class TimeBased_Alarms extends Task_PlayAlarm{
-	private LocalDate localDate = LocalDate.now();
-	private LocalTime localTime = LocalTime.now();
-	private Instant instant = Instant.now();
+public class TimeBased_Alarms extends VirtualTimer{
+	private LocalDateTime sysTime = LocalDateTime.now();
+	private boolean[] calendar = new boolean[7];
+	private String time;
 	
-	public void printOut()
+	Thread T0;
+	
+	public void getSysTimeAndDate()
 	{
-		System.out.println(localDate.format(DateTimeFormatter.ofPattern("dd-mm-yyyy")) + "\n"
-				+ localTime.getHour() + ":" + localTime.getMinute() + ":" + localTime.getSecond());
+		System.out.println(sysTime.getDayOfWeek().toString() + " " + sysTime.getDayOfMonth() + "/" + sysTime.getMonthValue() + "/" + sysTime.getYear() + "\n"
+				+ sysTime.getHour() + ":" + sysTime.getMinute() + ":" + sysTime.getSecond());
+	}
+	
+	public String getTime()
+	{
+		return time;
+	}
+	
+	public void showCalendar()
+	{
+		System.out.println("Calendario attuale: \n"
+				+ "| Lun | Mar | Mer | Gio | Ven | Sab | Dom |");
+		for(int i = 0; i < 7; i++)
+		{
+			System.out.print("   ");
+			if(calendar[i] == true)
+				System.out.print("V");
+			else
+				System.out.print("X");
+			System.out.print("  ");
+		}
+		System.out.println();
+	}
+	
+	public void toggleDay(int day)
+	{
+		calendar[day - 1] = !calendar[day - 1];
+	}
+	
+	public int setTime(String time)
+	{
+		if(time.charAt(2) == ':' && time.charAt(5) == ':')
+		{
+			this.time = time;
+			return 0;
+		}
+		else
+			return -1;
 	}
 	
 }

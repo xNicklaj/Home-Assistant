@@ -18,11 +18,6 @@ public class PlayAudio {
 		this.pthFile = filePath;
 	}
 	
-	public void nulla()
-	{
-		
-	}
-	
 	/**
 	 * Use this method to set the name of the file to play.
 	 * @param path

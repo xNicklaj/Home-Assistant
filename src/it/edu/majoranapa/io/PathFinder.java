@@ -21,11 +21,6 @@ public class PathFinder {
 		return true;
 	}
 	
-	public void nulla()
-	{
-		
-	}
-
 	private void evaluatePath()
 	{
 		int beginIndex = 0, endIndex = 5;

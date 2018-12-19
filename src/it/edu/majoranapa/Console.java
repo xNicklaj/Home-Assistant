@@ -8,6 +8,7 @@ public class Console {
 	private int lastReturnValue = 0;
 	private String command = "";
 	private Scanner scan;
+	TimeBased_Alarms alarm = new TimeBased_Alarms();
 	
 	/**
 	 * This method helps by getting a certain passed parameter.
@@ -65,10 +66,33 @@ public class Console {
 	
 	private int alarm()
 	{
-		TimeBased_Alarms alarm = new TimeBased_Alarms();
-		if(command.contains("getInfo"))
+		if(command.contains("getinfo"))
 		{
-			alarm.printOut();
+			alarm.getSysTimeAndDate();
+			return 0;
+		}
+		
+		if(command.contains("showcalendar"))
+		{
+			alarm.showCalendar();
+			return 0;
+		}
+		
+		if(command.contains("gettime"))
+		{
+			System.out.println(alarm.getTime());
+			return 0;
+		}
+		
+		if(command.contains("toggleday"))
+		{
+			alarm.toggleDay(Integer.parseInt(getParam("day=")));
+			return 0;
+		}
+		
+		if(command.contains("settime"))
+		{
+			return alarm.setTime(this.getParam("time="));
 		}
 		
 		return 0;
@@ -117,7 +141,7 @@ public class Console {
 	public int newCommand() throws InterruptedException
 	{
 		lastCommand = command;
-		command = scan.nextLine();
+		command = scan.nextLine().toLowerCase();
 		
 		/*
 		 * Commands:
