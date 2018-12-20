@@ -1,10 +1,12 @@
 package it.edu.majoranapa.timers;
 
 import java.util.Timer;
+import it.edu.majoranapa.io.*;
 
 public class VirtualTimer extends Thread{
 	private Timer timer = new Timer();
 	private Task_PlayAlarm task = new Task_PlayAlarm();
+	private Volume volume;
 	private int delay = 0;
 	
 	/**
@@ -12,9 +14,15 @@ public class VirtualTimer extends Thread{
 	 * @param delay
 	 * This parameter allows to set the delay of the timer of
 	 */
-	public VirtualTimer(int delay)
+	public VirtualTimer(int delay, Volume volume)
 	{
+		this.volume = volume;
 		this.delay = delay;
+	}
+	
+	public void setVolume(float volume)
+	{
+		task.setVolume(volume);
 	}
 	
 	/**

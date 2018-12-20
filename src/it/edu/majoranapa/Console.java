@@ -2,12 +2,14 @@ package it.edu.majoranapa;
 
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
+import it.edu.majoranapa.io.*;
 
 public class Console {
 	private String lastCommand = "";
 	private int lastReturnValue = 0;
 	private String command = "";
 	private Scanner scan;
+	private Volume volume;
 	TimeBased_Alarms alarm = new TimeBased_Alarms();
 	
 	/**
@@ -60,6 +62,11 @@ public class Console {
 			timer.join();
 			return 0;
 		}
+		
+		if(command.contains("setvolume"))
+		{
+			timer.setVolume(Integer.parseInt(getParam("volume=")));
+		}
 	
 		return 0;
 	}
@@ -100,10 +107,13 @@ public class Console {
 
 	/**
 	 * This is a class Constructor.
+	 * @param volume
+	 * This is the referee to the Volume class containing System and Media volumes.
 	 */
-	public Console()
+	public Console(Volume volume)
 	{
 		super();
+		this.volume = volume;
 		scan = new Scanner(System.in);
 	}
 	

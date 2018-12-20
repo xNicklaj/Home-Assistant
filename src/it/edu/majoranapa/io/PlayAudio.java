@@ -5,7 +5,11 @@ import javax.sound.sampled.*;
 
 
 public class PlayAudio {
+	private Clip clip;
+	private FloatControl volumeController;
+	private Volume volume;
 	private String pthFile = "";
+	private AudioChannel channel;
 	
 	/**
 	 * This is the constructor of the class.
@@ -16,6 +20,26 @@ public class PlayAudio {
 	public PlayAudio(String filePath)
 	{
 		this.pthFile = filePath;
+	}
+	
+	public void setVolumePointer(Volume volume)
+	{
+		this.volume = volume;
+	}
+	
+	public void setAudioChannel(AudioChannel channel)
+	{
+		this.channel = channel;
+	}
+	
+	public AudioChannel getAudioChannel()
+	{
+		return this.channel;
+	}
+	
+	private void setVolume(float volume)
+	{
+		this.volume = volume;
 	}
 	
 	/**
@@ -29,15 +53,38 @@ public class PlayAudio {
 	}
 	
 	/**
+	 * Use this method to set the volume of the clip.
+	 * @param volume
+	 * Volume in db
+	 * Range: -80 to 6
+	 */
+	public void setAudioVolume(float volume)
+	{
+		switch(channel)
+		{
+		case ALARM:
+			
+			break;
+		case SYSTEM:
+			
+			break;
+		case MEDIA:
+			
+			break;
+		}
+		this.volumeController.setValue(volume);
+		setVolume(volume);
+	}
+	
+	/**
 	 * Use this method to start the audio.
 	 */
 	public void startAudio()
 	{
 		try 
 		{
-			Clip clip = AudioSystem.getClip();
+			this.clip = AudioSystem.getClip();
 			File f = new File(this.pthFile);
-
 			if(!f.isFile())
 			{
 				System.err.println("Error: file not found!!");
@@ -45,6 +92,9 @@ public class PlayAudio {
 			}
 			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
 	        clip.open(inStream);
+	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	        
+	        this.setAudioVolume(this.volume);
 	        clip.start(); 
 			while(clip.isActive());
 		} 
