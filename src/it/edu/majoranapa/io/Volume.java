@@ -1,11 +1,11 @@
 package it.edu.majoranapa.io;
 
 public class Volume {
-	private float systemVolume = 6;
-	private float mediaVolume = 6;
-	private float alarmVolume = 6;
+	private static float systemVolume = 6;
+	private static float mediaVolume = 6;
+	private static float alarmVolume = 6;
 	
-	public int setSystemVolume(float volume)
+	public static int setSystemVolume(float volume)
 	{
 		if(volume < -80 || volume > 6)
 			return -1;
@@ -14,7 +14,7 @@ public class Volume {
 		return 0;
 	}
 	
-	public int setMediaVolume(float volume)
+	public static int setMediaVolume(float volume)
 	{
 		if(volume < -80 || volume > 6)
 			return -1;
@@ -23,7 +23,7 @@ public class Volume {
 		return 0;
 	}
 	
-	public int setAlarmVolume(float volume)
+	public static int setAlarmVolume(float volume)
 	{
 		if(volume < -80 || volume > 6)
 			return -1;
@@ -32,17 +32,17 @@ public class Volume {
 		return 0;
 	}
 
-	public float getSystemVolume()
+	public static float getSystemVolume()
 	{
 		return systemVolume;
 	}
 	
-	public float getAlarmVolume()
+	public static float getAlarmVolume()
 	{
 		return alarmVolume;
 	}
 	
-	public float getMediaVolume()
+	public static float getMediaVolume()
 	{
 		return mediaVolume;
 	}

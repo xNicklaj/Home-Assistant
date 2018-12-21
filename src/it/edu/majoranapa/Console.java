@@ -9,7 +9,6 @@ public class Console {
 	private int lastReturnValue = 0;
 	private String command = "";
 	private Scanner scan;
-	private Volume volume;
 	TimeBased_Alarms alarm = new TimeBased_Alarms();
 	
 	/**
@@ -47,7 +46,6 @@ public class Console {
 	private int timer() throws InterruptedException
 	{
 		VirtualTimer timer = new VirtualTimer();
-		timer.setVolumePointer(volume);
 		if(command.contains("start"))
 		{
 			if(!command.contains("delay"))
@@ -75,11 +73,11 @@ public class Console {
 			switch(getParam("channel="))
 			{
 			case "alarm":
-				return volume.setAlarmVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setAlarmVolume(Float.parseFloat(getParam("volume=")));
 			case "system":
-				return volume.setSystemVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setSystemVolume(Float.parseFloat(getParam("volume=")));
 			case "media":
-				return volume.setMediaVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setMediaVolume(Float.parseFloat(getParam("volume=")));
 			}
 		}
 		
@@ -125,10 +123,9 @@ public class Console {
 	 * @param volume
 	 * This is the referee to the Volume class containing System and Media volumes.
 	 */
-	public Console(Volume volume)
+	public Console()
 	{
 		super();
-		this.volume = volume;
 		scan = new Scanner(System.in);
 	}
 	
@@ -173,16 +170,16 @@ public class Console {
 		 * 	start delay=n
 		 * 	stop
 		 */
-		if(command.contains("timer"))
+		if(command.substring(0, 7).contains("timer"))
 			return timer();
 		
-		if(command.contains("alarm"))
+		if(command.substring(0, 7).contains("alarm"))
 			return alarm();
 		
-		if(command.contains("audio"))
+		if(command.substring(0, 7).contains("audio"))
 			return audio();
 		
-		if(command.contains("exit"))
+		if(command.substring(0, 7).contains("exit"))
 			return -2;
 		
 		

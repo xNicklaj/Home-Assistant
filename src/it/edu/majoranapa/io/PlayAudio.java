@@ -8,7 +8,6 @@ public class PlayAudio {
 	private Clip clip;
 	private FloatControl volumeController;
 	private String pthFile = "";
-	private Volume volume;
 	private AudioChannel channel;
 	
 	/**
@@ -49,8 +48,7 @@ public class PlayAudio {
 			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
 	        clip.open(inStream);
 	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	        System.out.println(channel.toString());
-	        //this.setAudioVolume(this.getAudioVolume()); Istruzione disabilitata per NullPointer //TODO Capire cosa causa il NullPointer
+	        this.setAudioVolume(this.getAudioVolume());
 	        clip.start(); 
 			while(clip.isActive());
 		} 
@@ -60,17 +58,23 @@ public class PlayAudio {
 		}
 		return;
 	}
-
-	public void setVolumePointer(Volume volume)
-	{
-		this.volume = volume;
-	}
 	
+	/**
+	 * This method allows to choose the channel to use when delivering audio
+	 * @param channel
+	 * Enum of type AudioChannel containing the info about the audio channel to use.
+	 * Can be either SYSTEM, ALARM or MEDIA.
+	 */
 	public void setAudioChannel(AudioChannel channel)
 	{
 		this.channel = channel;
 	}
-
+	
+	/**
+	 * This method returns the value of the current AudioChannel.
+	 * @return
+	 * Enum of type AudioChannel containing the info about the audio channel being used.
+	 */
 	public AudioChannel getAudioChannel()
 	{
 		return this.channel;
@@ -87,30 +91,45 @@ public class PlayAudio {
 		switch(channel)
 		{
 		case ALARM:
-			this.volume.setAlarmVolume(volume);
+			Volume.setAlarmVolume(volume);
 			break;
 		case SYSTEM:
-			this.volume.setSystemVolume(volume);
+			Volume.setSystemVolume(volume);
 			break;
 		case MEDIA:
-			this.volume.setMediaVolume(volume);
+			Volume.setMediaVolume(volume);
 			break;
 		}
 		this.volumeController.setValue(volume);
-		this.setAudioVolume(volume);
 	}
 
+	/**
+	 * Use this method to get the current volume.
+	 * Range: -80 to +6.
+	 * Unit: dB.
+	 * @return
+	 */
 	public float getAudioVolume()
 	{
 		switch(channel)
 		{
 		case ALARM:
-			return volume.getAlarmVolume();
+			return Volume.getAlarmVolume();
 		case SYSTEM:
-			return volume.getSystemVolume();
+			return Volume.getSystemVolume();
 		case MEDIA:
-			return volume.getMediaVolume();
+			return Volume.getMediaVolume();
 		}
 		return 0;
+	}
+	
+	/**
+	 * Use this method to get the current volume percentage.
+	 * @return
+	 * Current volume percentage.
+	 */
+	public float getAudioVolumePercentage()
+	{
+		return (this.getAudioVolume() + 80) * 100 / 86;
 	}
 }

@@ -6,8 +6,8 @@ import java.util.TimerTask;
 public class Task_PlayAlarm extends TimerTask{
 	protected PlayAudio session;
 	protected String tone = "AlarmTone.wav";
-	protected Volume volume;
 	protected static PathFinder finder = new PathFinder();
+	protected final AudioChannel channel = AudioChannel.ALARM;
 	
 	/**
 	 * @override of the run() method inherited from TimerTask.
@@ -16,20 +16,10 @@ public class Task_PlayAlarm extends TimerTask{
 	public void run()
 	{
 		session = new PlayAudio(finder.getResourcePath(tone));
-		session.setAudioChannel(AudioChannel.ALARM);
-		session.setVolumePointer(volume);
+		session.setAudioChannel(channel);
 		session.startAudio();
 		
 		return;
-	}
-	
-	/**
-	 * Set the pointer to the general volume class.
-	 * @param volume
-	 */
-	public void setVolumePointer(Volume volume)
-	{
-		this.volume = volume;
 	}
 	
 	/**
@@ -38,7 +28,7 @@ public class Task_PlayAlarm extends TimerTask{
 	 */
 	public void setVolume(float volume)
 	{
-		this.volume.setAlarmVolume(volume);
+		Volume.setAlarmVolume(volume);
 	}
 	
 	/**

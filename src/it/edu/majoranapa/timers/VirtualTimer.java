@@ -6,7 +6,6 @@ import it.edu.majoranapa.io.*;
 public class VirtualTimer extends Thread{
 	private Timer timer = new Timer();
 	private Task_PlayAlarm task = new Task_PlayAlarm();
-	private Volume volume;
 	private int delay = 0;
 	
 	/**
@@ -14,21 +13,9 @@ public class VirtualTimer extends Thread{
 	 * @param delay
 	 * This parameter allows to set the delay of the timer of
 	 */
-	public VirtualTimer(int delay, Volume volume)
+	public VirtualTimer(int delay)
 	{
-		this.volume = volume;
-		this.task.setVolumePointer(volume);
 		this.delay = delay;
-	}
-	
-	public void setVolumePointer(Volume volume)
-	{
-		this.volume = volume;
-	}
-	
-	public void setVolume(float volume)
-	{
-		task.setVolume(volume);
 	}
 	
 	/**
@@ -39,19 +26,12 @@ public class VirtualTimer extends Thread{
 	{
 		super();
 	}
-	
-	/**
-	 * @override of the run() method from Threads.
-	 * It allows to schedule the timer through playTask().
-	 */
-	public void run()
+
+	public void setVolume(float volume)
 	{
-		this.playTask();
-		return;
+		task.setVolume(volume);
 	}
 	
-
-
 	/**
 	 * This method allows to set the delay of the timer.
 	 * @param delay
@@ -68,5 +48,15 @@ public class VirtualTimer extends Thread{
 	public void playTask()
 	{
 		timer.schedule(task, delay);
+	}
+
+	/**
+	 * @override of the run() method from Threads.
+	 * It allows to schedule the timer through playTask().
+	 */
+	public void run()
+	{
+		this.playTask();
+		return;
 	}
 }
