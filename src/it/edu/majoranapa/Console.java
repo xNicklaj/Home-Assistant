@@ -47,6 +47,7 @@ public class Console {
 	private int timer() throws InterruptedException
 	{
 		VirtualTimer timer = new VirtualTimer();
+		timer.setVolumePointer(volume);
 		if(command.contains("start"))
 		{
 			if(!command.contains("delay"))
@@ -54,6 +55,7 @@ public class Console {
 			
 			timer.setDelay(Integer.parseInt(getParam("delay=")));
 			timer.start();
+			timer.join();
 			return 0;
 		}
 		
@@ -62,13 +64,26 @@ public class Console {
 			timer.join();
 			return 0;
 		}
-		
-		if(command.contains("setvolume"))
-		{
-			timer.setVolume(Integer.parseInt(getParam("volume=")));
-		}
 	
-		return 0;
+		return -1;
+	}
+	
+	private int audio()
+	{
+		if(command.contains("set"))
+		{
+			switch(getParam("channel="))
+			{
+			case "alarm":
+				return volume.setAlarmVolume(Float.parseFloat(getParam("volume=")));
+			case "system":
+				return volume.setSystemVolume(Float.parseFloat(getParam("volume=")));
+			case "media":
+				return volume.setMediaVolume(Float.parseFloat(getParam("volume=")));
+			}
+		}
+		
+		return -1;
 	}
 	
 	private int alarm()
@@ -102,7 +117,7 @@ public class Console {
 			return alarm.setTime(this.getParam("time="));
 		}
 		
-		return 0;
+		return -1;
 	}
 
 	/**
@@ -164,8 +179,13 @@ public class Console {
 		if(command.contains("alarm"))
 			return alarm();
 		
+		if(command.contains("audio"))
+			return audio();
+		
 		if(command.contains("exit"))
 			return -2;
+		
+		
 		
 		return 0;
 	}

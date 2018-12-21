@@ -7,8 +7,8 @@ import javax.sound.sampled.*;
 public class PlayAudio {
 	private Clip clip;
 	private FloatControl volumeController;
-	private Volume volume;
 	private String pthFile = "";
+	private Volume volume;
 	private AudioChannel channel;
 	
 	/**
@@ -22,26 +22,6 @@ public class PlayAudio {
 		this.pthFile = filePath;
 	}
 	
-	public void setVolumePointer(Volume volume)
-	{
-		this.volume = volume;
-	}
-	
-	public void setAudioChannel(AudioChannel channel)
-	{
-		this.channel = channel;
-	}
-	
-	public AudioChannel getAudioChannel()
-	{
-		return this.channel;
-	}
-	
-	private void setVolume(float volume)
-	{
-		this.volume = volume;
-	}
-	
 	/**
 	 * Use this method to set the name of the file to play.
 	 * @param path
@@ -51,31 +31,7 @@ public class PlayAudio {
 	{
 		this.pthFile = filePath;
 	}
-	
-	/**
-	 * Use this method to set the volume of the clip.
-	 * @param volume
-	 * Volume in db
-	 * Range: -80 to 6
-	 */
-	public void setAudioVolume(float volume)
-	{
-		switch(channel)
-		{
-		case ALARM:
-			
-			break;
-		case SYSTEM:
-			
-			break;
-		case MEDIA:
-			
-			break;
-		}
-		this.volumeController.setValue(volume);
-		setVolume(volume);
-	}
-	
+
 	/**
 	 * Use this method to start the audio.
 	 */
@@ -93,8 +49,8 @@ public class PlayAudio {
 			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
 	        clip.open(inStream);
 	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	        
-	        this.setAudioVolume(this.volume);
+	        System.out.println(channel.toString());
+	        //this.setAudioVolume(this.getAudioVolume()); Istruzione disabilitata per NullPointer //TODO Capire cosa causa il NullPointer
 	        clip.start(); 
 			while(clip.isActive());
 		} 
@@ -103,5 +59,58 @@ public class PlayAudio {
 			e.printStackTrace();
 		}
 		return;
+	}
+
+	public void setVolumePointer(Volume volume)
+	{
+		this.volume = volume;
+	}
+	
+	public void setAudioChannel(AudioChannel channel)
+	{
+		this.channel = channel;
+	}
+
+	public AudioChannel getAudioChannel()
+	{
+		return this.channel;
+	}
+
+	/**
+	 * Use this method to set the volume of the clip.
+	 * @param volume
+	 * Volume in db
+	 * Range: -80 to 6
+	 */
+	public void setAudioVolume(float volume)
+	{
+		switch(channel)
+		{
+		case ALARM:
+			this.volume.setAlarmVolume(volume);
+			break;
+		case SYSTEM:
+			this.volume.setSystemVolume(volume);
+			break;
+		case MEDIA:
+			this.volume.setMediaVolume(volume);
+			break;
+		}
+		this.volumeController.setValue(volume);
+		this.setAudioVolume(volume);
+	}
+
+	public float getAudioVolume()
+	{
+		switch(channel)
+		{
+		case ALARM:
+			return volume.getAlarmVolume();
+		case SYSTEM:
+			return volume.getSystemVolume();
+		case MEDIA:
+			return volume.getMediaVolume();
+		}
+		return 0;
 	}
 }

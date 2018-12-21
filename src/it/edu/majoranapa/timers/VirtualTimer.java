@@ -17,7 +17,13 @@ public class VirtualTimer extends Thread{
 	public VirtualTimer(int delay, Volume volume)
 	{
 		this.volume = volume;
+		this.task.setVolumePointer(volume);
 		this.delay = delay;
+	}
+	
+	public void setVolumePointer(Volume volume)
+	{
+		this.volume = volume;
 	}
 	
 	public void setVolume(float volume)
