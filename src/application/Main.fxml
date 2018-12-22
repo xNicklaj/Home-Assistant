@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900" prefWidth="1600" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800" prefWidth="480" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Line endX="1499.0" layoutX="101.0" layoutY="777.0" startX="-100.0" />
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="1478.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="BackgroundComponent" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@resources/Asset%201.png" />
+            <Image url="@../../resources/proxy.duckduckgo.com.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <AnchorPane fx:id="AppComponent" layoutX="55.0" layoutY="55.0" prefHeight="149.0" prefWidth="81.0">
+         <children>
+            <Text fx:id="AppComponent_AppName" layoutX="43.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #FFFFFF;" text="Liste" AnchorPane.bottomAnchor="11.744791984558105" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="42.29557418823242" AnchorPane.topAnchor="121.63020896911621" />
+            <ImageView fx:id="AppComponent_AppIcon" fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/Icons/Lists.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="SystemComponent_BluetoothIcon" fitHeight="41.0" fitWidth="41.0" layoutX="1478.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="44.0" AnchorPane.rightAnchor="80.609375">
+         <image>
+            <Image url="@../../resources/Icons/Bluetooth.png" />
          </image>
       </ImageView>
    </children>

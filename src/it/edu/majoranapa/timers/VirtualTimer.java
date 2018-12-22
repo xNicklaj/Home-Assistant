@@ -27,6 +27,11 @@ public class VirtualTimer extends Thread{
 		super();
 	}
 
+	/**
+	 * This method allows to set the volume of the timer.
+	 * @param volume
+	 * Float of range -80 to 6.
+	 */
 	public void setVolume(float volume)
 	{
 		task.setVolume(volume);

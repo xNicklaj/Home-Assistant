@@ -12,12 +12,27 @@ public class PlayAudio {
 	
 	/**
 	 * This is the constructor of the class.
-	 * @param fileName
+	 * @param filePath
 	 * This is the path of the file that needs to be played.
 	 * It can also be changed from .setPath().
 	 */
 	public PlayAudio(String filePath)
 	{
+		this.pthFile = filePath;
+	}
+	
+	/**
+	 * This is a class constructor.
+	 * @param filePath
+	 * This is the path of the file that needs to be played.
+	 * It can also be changed from .setPath().
+	 * @param channel
+	 * This is the channel that the audio session will use.
+	 * It can also be changed from .setAudioChannel().
+	 */
+	public PlayAudio(String filePath, AudioChannel channel)
+	{
+		this.channel = channel;
 		this.pthFile = filePath;
 	}
 	
