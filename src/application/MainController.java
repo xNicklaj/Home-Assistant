@@ -1,14 +1,16 @@
 package application;
 
+import it.edu.majoranapa.io.*;
 import javafx.fxml.FXML;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class MainController {
 	@FXML
-    private ImageView BackgroundComponent = new ImageView();
+    private ImageView BackgroundComponent;
 
     @FXML
     private AnchorPane AppComponent;
@@ -24,6 +26,8 @@ public class MainController {
     
     public void setBackgroundBlur()
     {
-    	BackgroundComponent.setEffect(new GaussianBlur(40));
+    	BackgroundComponent = new ImageView();
+    	GaussianBlur blur = new GaussianBlur(60);
+    	BackgroundComponent.setEffect(blur);
     }
 }

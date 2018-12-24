@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!ELEMENT App (ImageView, JFXTestField)>
-<!ELEMENT ImageView (image)>
-<!ATTLIST ImageView preferHeight #REQUIRED, preferWidth #REQUIRED
-<!ELEMENT image (Image)>

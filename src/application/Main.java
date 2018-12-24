@@ -12,8 +12,9 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 			MainController controller = new MainController();
-			Scene scene = new Scene(root,800,480);
+			Scene scene = new Scene(root, 800,480);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//primaryStage.setResizable(false);
 			controller.setBackgroundBlur();
 			//primaryStage.setFullScreen(true);
 			primaryStage.setTitle("Home Assistant");
