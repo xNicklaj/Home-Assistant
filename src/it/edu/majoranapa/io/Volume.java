@@ -55,20 +55,67 @@ public class Volume {
 		alarmVolume = volume;
 		return 0;
 	}
-
+	
+	/**
+	 * Use this method to set the System channel volume in percentage.
+	 * Range: 0 to 100.
+	 * @param volume
+	 * @return
+	 * Returns 0 if everything worked correctly, -1 if the value is not available.
+	 */
+	public static int setSystemVolumePercentage(float volume)
+	{
+		if(volume < 0 || volume > 100)
+			return -1;
+		
+		systemVolume = 86 * volume / 100 - 80;
+		return 0;
+	}
+	
+	/**
+	 * Use this method to set the Media channel volume in percentage.
+	 * Range: 0 to 100.
+	 * @param volume
+	 * @return
+	 * Returns 0 if everything worked correctly, -1 if the value is not available.
+	 */
+	public static int setMediaVolumePercentage(float volume)
+	{
+		if(volume < 0 || volume > 100)
+			return -1;
+		
+		mediaVolume = 86 * volume / 100 - 80;
+		return 0;
+	}
+	
+	/**
+	 * Use this method to set the Alarm channel volume in percentage.
+	 * Range: 0 to 100.
+	 * @param volume
+	 * @return
+	 * Returns 0 if everything worked correctly, -1 if the value is not available.
+	 */
+	public static int setAlarmVolumePercentage(float volume)
+	{
+		if(volume < 0 || volume > 100)
+			return -1;
+		
+		alarmVolume = 86 * volume / 100 - 80;
+		return 0;
+	}
 	
 	public static float getSystemVolume()
 	{
 		return systemVolume;
 	}
 	
-	public static float getAlarmVolume()
-	{
-		return alarmVolume;
-	}
-	
 	public static float getMediaVolume()
 	{
 		return mediaVolume;
+	}
+
+	public static float getAlarmVolume()
+	{
+		return alarmVolume;
 	}
 }

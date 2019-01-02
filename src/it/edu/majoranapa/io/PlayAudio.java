@@ -63,7 +63,7 @@ public class PlayAudio {
 			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
 	        clip.open(inStream);
 	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	        this.setAudioVolume(this.getAudioVolume());
+	        this.setLocalAudioVolume(this.getAudioVolume());
 	        clip.start(); 
 			while(clip.isActive());
 		} 
@@ -101,21 +101,25 @@ public class PlayAudio {
 	 * Volume in db
 	 * Range: -80 to 6
 	 */
-	public void setAudioVolume(float volume)
+	public int setLocalAudioVolume(float volume)
 	{
-		switch(channel)
-		{
-		case ALARM:
-			Volume.setAlarmVolume(volume);
-			break;
-		case SYSTEM:
-			Volume.setSystemVolume(volume);
-			break;
-		case MEDIA:
-			Volume.setMediaVolume(volume);
-			break;
-		}
 		this.volumeController.setValue(volume);
+		
+		return 0;
+	}
+
+	/**
+	 * Use this method to set the volume using percentage (0 to 100).
+	 * @param volume
+	 * @return
+	 * Returns 0 if everything worked
+	 * Returns -1 if an incorrect value was used.
+	 */
+	public int setLocalAudioVolumePercentage(float volume)
+	{
+		this.volumeController.setValue((86*volume/100)-80);
+		
+		return 0;
 	}
 
 	/**

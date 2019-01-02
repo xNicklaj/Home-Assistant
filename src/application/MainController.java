@@ -1,33 +1,33 @@
 package application;
 
-import it.edu.majoranapa.io.*;
 import javafx.fxml.FXML;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import it.edu.majoranapa.io.*;
 
 public class MainController {
-	@FXML
-    private ImageView BackgroundComponent;
+
+    @FXML
+    private AnchorPane rootObject;
 
     @FXML
     private AnchorPane AppComponent;
 
     @FXML
-    private ImageView AppComponent_AppIcon;
+    private Text AppComponent_AppName;
 
     @FXML
-    private Text AppComponent_AppName;
+    private ImageView AppComponent_AppIcon;
 
     @FXML
     private ImageView SystemComponent_BluetoothIcon;
     
-    public void setBackgroundBlur()
+    public void setBackgroundImage()
     {
-    	BackgroundComponent = new ImageView();
-    	GaussianBlur blur = new GaussianBlur(60);
-    	BackgroundComponent.setEffect(blur);
+    	rootObject = new AnchorPane();
+    	PathFinder finder = new PathFinder();
+    	rootObject.setStyle("-fx-background-image: " + finder.getResourcePath("BackgroundImage") + ";");
     }
+
 }

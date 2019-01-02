@@ -73,11 +73,11 @@ public class Console {
 			switch(getParam("channel="))
 			{
 			case "alarm":
-				return Volume.setAlarmVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setAlarmVolumePercentage(Float.parseFloat(getParam("volume=")));
 			case "system":
-				return Volume.setSystemVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setSystemVolumePercentage(Float.parseFloat(getParam("volume=")));
 			case "media":
-				return Volume.setMediaVolume(Float.parseFloat(getParam("volume=")));
+				return Volume.setMediaVolumePercentage(Float.parseFloat(getParam("volume=")));
 			}
 		}
 		
