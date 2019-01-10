@@ -1,16 +1,20 @@
 package it.edu.majoranapa;
 
+import java.nio.file.Paths;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
 import it.edu.majoranapa.io.*;
+import it.edu.majoranapa.customplayer.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 
-public class Console {
+public class Console extends Thread{
 	private String lastCommand = "";
 	private int lastReturnValue = 0;
 	private String command = "";
 	private Scanner scan;
 	TimeBased_Alarms alarm = new TimeBased_Alarms();
-	
+
 	/**
 	 * This method helps by getting a certain passed parameter.
 	 * @param param
@@ -50,22 +54,22 @@ public class Console {
 		{
 			if(!command.contains("delay"))
 				return -1;
-			
+
 			timer.setDelay(Integer.parseInt(getParam("delay=")));
 			timer.start();
 			timer.join();
 			return 0;
 		}
-		
+
 		if(command.contains("stop"))
 		{
 			timer.join();
 			return 0;
 		}
-	
+
 		return -1;
 	}
-	
+
 	private int audio()
 	{
 		if(command.contains("set"))
@@ -80,10 +84,10 @@ public class Console {
 				return Volume.setMediaVolumePercentage(Float.parseFloat(getParam("volume=")));
 			}
 		}
-		
+
 		return -1;
 	}
-	
+
 	private int alarm()
 	{
 		if(command.contains("getinfo"))
@@ -91,30 +95,74 @@ public class Console {
 			alarm.getSysTimeAndDate();
 			return 0;
 		}
-		
+
 		if(command.contains("showcalendar"))
 		{
 			alarm.showCalendar();
 			return 0;
 		}
-		
+
 		if(command.contains("gettime"))
 		{
 			System.out.println(alarm.getTime());
 			return 0;
 		}
-		
+
 		if(command.contains("toggleday"))
 		{
 			alarm.toggleDay(Integer.parseInt(getParam("day=")));
 			return 0;
 		}
-		
+
 		if(command.contains("settime"))
 		{
 			return alarm.setTime(this.getParam("time="));
 		}
-		
+
+		return -1;
+	}
+
+	private int media()
+	{
+		Player player;
+		String resource = this.getParam("resource=");
+		try
+		{
+			if(resource != "")
+				player = new Player(new Media("file:///" + PathFinder.getResourcePath("MP3/" + resource)));
+			player = new Player(new Media("file://" + this.getParam("file=")));
+		}
+		catch(MediaException | IllegalArgumentException e)
+		{
+			System.out.println(resource);
+			System.out.println("file://" + PathFinder.getResourcePath(this.getParam("resource=")));
+			System.out.println("file://" + PathFinder.getResourcePath(this.getParam("file=")));
+		}
+		player = new Player(null);
+		if(command.contains("play"))
+		{
+			player.playMedia();
+			return 0;
+		}
+
+		if(command.contains("pause"))
+		{
+			player.pauseMedia();
+			return 0;
+		}
+
+		if(command.contains("mute"))
+		{
+			player.toggleMute();
+			return 0;
+		}
+
+		if(command.contains("setvolume"))
+		{
+			player.setVolumePercentage(Float.parseFloat(this.getParam("volume=")));
+			return 0;
+		}
+
 		return -1;
 	}
 
@@ -128,7 +176,7 @@ public class Console {
 		super();
 		scan = new Scanner(System.in);
 	}
-	
+
 	/**
 	 * This method returns an integer containing the return
 	 * value of the last command.
@@ -139,7 +187,7 @@ public class Console {
 	{
 		return this.lastReturnValue;
 	}
-	
+
 	/**
 	 * This method returns a string containing the last
 	 * requested command.
@@ -150,7 +198,7 @@ public class Console {
 	{
 		return lastCommand; 
 	}
-	
+
 	/**
 	 * This method is the actual console function that allows the user to insert a new command.
 	 * @return
@@ -164,29 +212,34 @@ public class Console {
 	{
 		lastCommand = command;
 		command = scan.nextLine().toLowerCase();
-		
-		/*
-		 * Commands:
-		 * 	start delay=n
-		 * 	stop
-		 */
-		if(command.substring(0, 7).contains("timer"))
-			return timer();
-		
-		if(command.substring(0, 7).contains("alarm"))
-			return alarm();
-		
-		if(command.substring(0, 7).contains("audio"))
-			return audio();
-		
-		if(command.substring(0, 7).contains("exit"))
-			return -2;
-		
-		
-		
+		try {
+			/*
+			 * Commands:
+			 * 	start delay=n
+			 * 	stop
+			 */
+			if(command.substring(0, 7).contains("timer"))
+				return timer();
+
+			else if(command.substring(0, 7).contains("alarm"))
+				return alarm();
+
+			else if(command.substring(0, 7).contains("audio"))
+				return audio();
+
+			else if(command.substring(0, 7).contains("media"))
+				return media();
+
+			else if(command.substring(0, 7).contains("exit"))
+				System.exit(0);
+		}
+		catch(StringIndexOutOfBoundsException e)
+		{
+			return -1;
+		}
 		return 0;
 	}
-	
+
 	/**
 	 * Use this method to finally close the console.
 	 * Note: After being closed you will have to allocate a new console Object.
@@ -194,5 +247,15 @@ public class Console {
 	public void close()
 	{
 		scan.close();
+	}
+
+	public void run()
+	{
+		try {
+			this.newCommand();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -118,4 +118,19 @@ public class Volume {
 	{
 		return alarmVolume;
 	}
+	
+	public static float getSystemVolumePercentage()
+	{
+		return (systemVolume + 80)/86*100;
+	}
+	
+	public static float getMediaVolumePercentage()
+	{
+		return (mediaVolume + 80)/86*100;
+	}
+	
+	public static float getAlarmVolumePercentage()
+	{
+		return (alarmVolume + 80)/86*100;
+	}
 }

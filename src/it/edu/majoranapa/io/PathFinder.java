@@ -3,7 +3,7 @@ package it.edu.majoranapa.io;
 import it.edu.majoranapa.Main;
 
 public class PathFinder {
-	private String filePath = "";
+	private static String filePath = "";
 	
 	/**
 	 * This method converts an into to a boolean in a C-like manner.
@@ -13,7 +13,7 @@ public class PathFinder {
 	 * The method returns false if the parameter is 0.
 	 * Every other number returns true.
 	 */
-	private boolean intToBool(int num)
+	private static boolean intToBool(int num)
 	{
 		if(num == 0)
 			return false;
@@ -21,11 +21,15 @@ public class PathFinder {
 		return true;
 	}
 	
-	private void evaluatePath()
+	private static void evaluatePath()
 	{
 		int beginIndex = 0, endIndex = 5;
 		while(intToBool(filePath.substring(beginIndex, endIndex).compareTo("file:")))
 		{
+			if(filePath.substring(beginIndex, endIndex).startsWith("/"))
+				return;
+			
+			System.out.println(filePath.substring(beginIndex, endIndex));
 			beginIndex++;
 			endIndex++;
 		}
@@ -37,7 +41,7 @@ public class PathFinder {
 	 * @return
 	 * String containing the path of the Home folder.
 	 */
-	private int evaluateProgPath()
+	private static int evaluateProgPath()
 	{
 		int beginIndex = 0, endIndex = 15;
 		evaluatePath();
@@ -83,9 +87,10 @@ public class PathFinder {
 	 * Example:
 	 * new PathFinder(CustomClass.class.getResource(CustomClass.class.getSimpleName() + ".class").toString());
 	 */
-	public void setFilePath(String filePath)
+	
+	public static void setFilePath(String newFilePath)
 	{
-		this.filePath = filePath;
+		filePath = newFilePath;
 	}
 	
 	/**
@@ -95,7 +100,7 @@ public class PathFinder {
 	 * @return
 	 * This method returns the absolute path of the file.
 	 */
-	public String getResourcePath(String resource)
+	public static String getResourcePath(String resource)
 	{
 		int endIndex = evaluateProgPath();
 		return filePath.substring(0, endIndex) + "resources/" + resource;

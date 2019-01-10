@@ -11,5 +11,15 @@ public class Main {
 		
 		System.exit(0);
 	}
+	
+	public static void console() throws InterruptedException
+	{
+		Console CUI = new Console();
+		while(true)
+		{
+			CUI.newCommand();
+			System.out.println("return: " + CUI.getLastReturnValue());
+		}
+	}
 
 }

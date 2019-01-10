@@ -1,5 +1,6 @@
 package application;
 	
+import it.edu.majoranapa.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -18,14 +19,16 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		try {
 			Parent root =  FXMLLoader.load(getClass().getResource("Main.fxml"));
 			MainController controller = new MainController();
+			root.setId("anchor");
 			Scene scene = new Scene(root, 800,480);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			//primaryStage.setResizable(false);
+			scene.getStylesheets().add(getClass().getResource("css/Main.css").toExternalForm());
+			primaryStage.setResizable(false);
 			//primaryStage.setFullScreen(true);
 			primaryStage.setTitle("Home Assistant");
 			primaryStage.setScene(scene);
-			controller.setBackgroundImage();
+		//	controller.setBackgroundImage();
 			primaryStage.show();
+			it.edu.majoranapa.Main.console();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

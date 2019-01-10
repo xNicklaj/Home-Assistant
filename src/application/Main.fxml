@@ -5,22 +5,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane id="#anchor" fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@css/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <AnchorPane fx:id="AppComponent" layoutX="55.0" layoutY="55.0" prefHeight="0.0" prefWidth="0.0">
+      <AnchorPane fx:id="AppComponent" layoutX="42.0" layoutY="38.0" prefHeight="99.0" prefWidth="70.0">
          <children>
-            <Text fx:id="AppComponent_AppName" layoutX="43.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #FFFFFF;" text="Liste" AnchorPane.bottomAnchor="11.744791984558105" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="42.29557418823242" AnchorPane.topAnchor="121.63020896911621" />
-            <ImageView fx:id="AppComponent_AppIcon" fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="AppComponent_AppIcon" fitHeight="49.0" fitWidth="65.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/Icons/Lists.png" />
                </image>
             </ImageView>
+            <Text layoutX="19.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="SystemComponent_BluetoothIcon" fitHeight="41.0" fitWidth="41.0" layoutX="1478.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="44.0" AnchorPane.rightAnchor="80.609375">
-         <image>
-            <Image url="@../../resources/Icons/Bluetooth.png" />
-         </image>
-      </ImageView>
+      <AnchorPane layoutY="280.0" prefHeight="71.0" prefWidth="800.0" style="-fx-background-color: #C06c84;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ImageView fx:id="SystemComponent_BluetoothIcon" fitHeight="34.0" fitWidth="38.0" layoutX="741.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="25.0">
+               <image>
+                  <Image url="@../../resources/Icons/Bluetooth.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
