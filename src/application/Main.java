@@ -27,7 +27,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 			primaryStage.setScene(scene);
 		//	controller.setBackgroundImage();
 			primaryStage.show();
-			it.edu.majoranapa.Main.console();;
+			it.edu.majoranapa.Main.console();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
