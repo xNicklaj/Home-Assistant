@@ -9,7 +9,7 @@ public class Main {
 		while(CUI.newCommand() != -2)
 			System.out.println("return: " + CUI.getLastReturnValue());
 		
-		System.exit(0);
+		System.exit(0);;
 	}
 	
 	public static void console() throws InterruptedException
