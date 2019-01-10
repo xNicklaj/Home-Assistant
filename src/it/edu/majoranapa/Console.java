@@ -1,6 +1,5 @@
 package it.edu.majoranapa;
 
-import java.nio.file.Paths;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
 import it.edu.majoranapa.io.*;
@@ -23,7 +22,7 @@ public class Console extends Thread{
 	 * String containing the value of the parameter.
 	 * Example:
 	 * In the command "timer start delay=4",
-	 * The return string will be "4".
+	 * The return string will be "4"
 	 */
 	private String getParam(String param)
 	{
