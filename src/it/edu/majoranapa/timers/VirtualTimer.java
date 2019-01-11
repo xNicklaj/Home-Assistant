@@ -1,7 +1,6 @@
 package it.edu.majoranapa.timers;
 
 import java.util.Timer;
-import it.edu.majoranapa.io.*;
 
 public class VirtualTimer extends Thread{
 	private Timer timer = new Timer();
@@ -11,7 +10,7 @@ public class VirtualTimer extends Thread{
 	/**
 	 * This is a class constructor.
 	 * @param delay
-	 * This parameter allows to set the delay of the timer of
+	 * This parameter allows to set the delay of the timer.
 	 */
 	public VirtualTimer(int delay)
 	{
@@ -25,6 +24,16 @@ public class VirtualTimer extends Thread{
 	public VirtualTimer()
 	{
 		super();
+	}
+
+	/**
+	 * @override of the run() method from Threads.
+	 * It allows to schedule the timer through playTask().
+	 */
+	public void run()
+	{
+		this.playTask();
+		return;
 	}
 
 	/**
@@ -53,15 +62,5 @@ public class VirtualTimer extends Thread{
 	public void playTask()
 	{
 		timer.schedule(task, delay);
-	}
-
-	/**
-	 * @override of the run() method from Threads.
-	 * It allows to schedule the timer through playTask().
-	 */
-	public void run()
-	{
-		this.playTask();
-		return;
 	}
 }

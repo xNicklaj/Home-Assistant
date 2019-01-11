@@ -15,7 +15,7 @@ public class Task_PlayAlarm extends TimerTask{
 	 */
 	public void run()
 	{
-		session = new PlayAudio(finder.getResourcePath(tone));
+		session = new PlayAudio(PathFinder.getResourcePath(tone));
 		session.setAudioChannel(channel);
 		session.startAudio();
 		

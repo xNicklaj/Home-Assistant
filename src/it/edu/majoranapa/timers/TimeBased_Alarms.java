@@ -7,8 +7,6 @@ public class TimeBased_Alarms extends VirtualTimer{
 	private boolean[] calendar = new boolean[7];
 	private String time;
 	
-	Thread T0;
-	
 	public void getSysTimeAndDate()
 	{
 		System.out.println(sysTime.getDayOfWeek().toString() + " " + sysTime.getDayOfMonth() + "/" + sysTime.getMonthValue() + "/" + sysTime.getYear() + "\n"
@@ -36,10 +34,15 @@ public class TimeBased_Alarms extends VirtualTimer{
 		System.out.println();
 	}
 	
+	/**
+	 * Use this to toggle the alarm on a certain day of the week.
+	 * @param day
+	 */
 	public void toggleDay(int day)
 	{
 		calendar[day - 1] = !calendar[day - 1];
 	}
+	
 	
 	public int setTime(String time)
 	{

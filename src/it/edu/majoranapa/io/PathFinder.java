@@ -60,7 +60,7 @@ public class PathFinder {
 	 */
 	public PathFinder()
 	{
-		this.filePath = Main.class.getResource(Main.class.getSimpleName() + ".class").toString();
+		filePath = Main.class.getResource(Main.class.getSimpleName() + ".class").toString();
 	}
 
 	/**
@@ -73,9 +73,9 @@ public class PathFinder {
 	 * Example:
 	 * new PathFinder(CustomClass.class.getResource(CustomClass.class.getSimpleName() + ".class").toString());
 	 */
-	public PathFinder(String filePath)
+	public PathFinder(String newFilePath)
 	{
-		this.filePath = filePath;
+		filePath = newFilePath;
 	}
 	
 	/**
