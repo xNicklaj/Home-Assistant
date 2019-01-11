@@ -26,8 +26,7 @@ public class MainController {
     public void setBackgroundImage()
     {
     	rootObject = new AnchorPane();
-    	PathFinder finder = new PathFinder();
-    	rootObject.setStyle("-fx-background-image: " + finder.getResourcePath("BackgroundImage") + ";");
+    	rootObject.setStyle("-fx-background-image: " + PathFinder.getResourcePath("BackgroundImage") + ";");
     }
 
 }
