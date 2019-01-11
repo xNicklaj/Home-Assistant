@@ -5,7 +5,7 @@ public class Main {
 	{	
 		Console CUI = new Console();
 		while(CUI.newCommand() != -2)
-			System.out.println("return: " + CUI.getLastReturnValue());;
+			System.out.println("return: " + CUI.getLastReturnValue());
 		
 		System.exit(0);
 	}
