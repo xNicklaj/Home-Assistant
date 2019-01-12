@@ -9,11 +9,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaException;
 
 public class Console{
-	private String lastCommand = "";
-	private int lastReturnValue = 0;
-	private String command = "";
-	private Scanner scan;
-	TimeBased_Alarms alarm = new TimeBased_Alarms();
+	private static String lastCommand = "";
+	private static int lastReturnValue = 0;
+	private static String command = "";
+	private static Scanner scan;
+	private static TimeBased_Alarms alarm = new TimeBased_Alarms();
 
 	/**
 	 * This method helps by getting a certain passed parameter.
@@ -25,7 +25,7 @@ public class Console{
 	 * In the command "timer start delay=4",
 	 * The return string will be "4"
 	 */
-	private String getParam(String param)
+	public static String getParam(String param)
 	{
 		if(command.contains(param))
 		{
@@ -47,7 +47,7 @@ public class Console{
 	 * everything works correctly.
 	 * @throws InterruptedException
 	 */
-	private int timer() throws InterruptedException
+	private static int timer() throws InterruptedException
 	{
 		VirtualTimer timer = new VirtualTimer();
 		Thread thread = new Thread(timer);
@@ -71,7 +71,7 @@ public class Console{
 		return -1;
 	}
 
-	private int audio()
+	private static int audio()
 	{
 		if(command.contains("set"))
 		{
@@ -89,7 +89,7 @@ public class Console{
 		return -1;
 	}
 
-	private int alarm()
+	private static int alarm()
 	{
 		if(command.contains("getinfo"))
 		{
@@ -117,27 +117,27 @@ public class Console{
 
 		if(command.contains("settime"))
 		{
-			return alarm.setTime(this.getParam("time="));
+			return alarm.setTime(getParam("time="));
 		}
 
 		return -1;
 	}
 
-	private int media()
+	private static int media()
 	{
 		Player player;
-		String resource = this.getParam("resource=");
+		String resource = getParam("resource=");
 		try
 		{
 			if(resource != "")
 				player = new Player(new Media("file:///" + PathFinder.getResourcePath("MP3/" + resource)));
-			player = new Player(new Media("file://" + this.getParam("file=")));
+			player = new Player(new Media("file://" + getParam("file=")));
 		}
 		catch(MediaException | IllegalArgumentException e)
 		{
 			System.out.println(resource);
-			System.out.println("file://" + PathFinder.getResourcePath(this.getParam("resource=")));
-			System.out.println("file://" + PathFinder.getResourcePath(this.getParam("file=")));
+			System.out.println("file://" + PathFinder.getResourcePath(getParam("resource=")));
+			System.out.println("file://" + PathFinder.getResourcePath(getParam("file=")));
 		}
 		player = new Player(null);
 		if(command.contains("play"))
@@ -160,20 +160,19 @@ public class Console{
 
 		if(command.contains("setvolume"))
 		{
-			player.setVolumePercentage(Float.parseFloat(this.getParam("volume=")));
+			player.setVolumePercentage(Float.parseFloat(getParam("volume=")));
 			return 0;
 		}
 
 		return -1;
 	}
 
-	private int network()
+	private static int network()
 	{
-		SocketIO socket = new SocketIO(3305);
-		if(this.getParam("ip=") == "" || this.getParam("command=") == "")
+		if(getParam("ip=") == "" || getParam("command=") == "")
 			return -1;
 		else
-			SocketIO.sendMessage(this.getParam("ip="), this.getParam("command="));
+			SocketIO.sendMessage(getParam("ip="), getParam("command="));
 		
 		return -1;
 	}
@@ -196,10 +195,6 @@ public class Console{
 	 * @return
 	 * Return value of the last command.
 	 */
-	public int getLastReturnValue()
-	{
-		return this.lastReturnValue;
-	}
 
 	/**
 	 * This method returns a string containing the last
@@ -207,7 +202,7 @@ public class Console{
 	 * @return
 	 * Last requested command.
 	 */
-	public String getLastCommand()
+	public static String getLastCommand()
 	{
 		return lastCommand; 
 	}
@@ -221,7 +216,7 @@ public class Console{
 	 * Might throw an exception due to timers threaded nature.
 	 * Anyways, it should be checked automatically.
 	 */
-	public int newCommand() throws InterruptedException
+	public static int newCommand() throws InterruptedException
 	{
 		lastCommand = command;
 		command = scan.nextLine().toLowerCase();
@@ -260,7 +255,7 @@ public class Console{
 	 * Use this method to finally close the console.
 	 * Note: After being closed you will have to allocate a new console Object.
 	 */
-	public void close()
+	public static void close()
 	{
 		scan.close();
 	}

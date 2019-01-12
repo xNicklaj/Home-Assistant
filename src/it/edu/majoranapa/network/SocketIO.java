@@ -6,6 +6,8 @@ import java.net.*;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import it.edu.majoranapa.Console;
+
 public class SocketIO implements Runnable {
 	
 	private String line;
@@ -32,6 +34,7 @@ public class SocketIO implements Runnable {
 		while(true) {
 			try {
 				line = in.nextLine();
+				Console.getParam(line);
 			} catch (NoSuchElementException e) {
 				socket.close();
 				socket = server.accept();
