@@ -44,6 +44,19 @@ public class SocketIO implements Runnable {
 		}
 	}
 	
+	public static void sendMessage(String ip, String msg, int port) {
+		try {
+			Socket socket = new Socket(ip, port);
+			PrintWriter out = new PrintWriter(socket.getOutputStream());
+			
+			out.print(msg);
+			out.flush();
+			out.close();
+			socket.close();
+		} catch (IOException e) {}
+		
+	}
+	
 	public static void sendMessage(String ip, String msg) {
 		try {
 			Socket socket = new Socket(ip, 3050);
