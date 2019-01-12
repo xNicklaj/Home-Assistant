@@ -3,21 +3,26 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="#anchor" fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@css/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane id="#anchor" fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #36393F;" stylesheets="@css/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <AnchorPane fx:id="AppComponent" layoutX="42.0" layoutY="38.0" prefHeight="99.0" prefWidth="70.0">
          <children>
-            <ImageView fx:id="AppComponent_AppIcon" fitHeight="49.0" fitWidth="65.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="AppComponent_AppIcon" fitHeight="62.0" fitWidth="376.0" layoutX="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/Icons/Lists.png" />
+                  <Image url="@../../../../Downloads/iconfinder_clock_299080%20(3).png" />
                </image>
             </ImageView>
-            <Text layoutX="19.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste" />
+            <Text fill="#7289da" layoutX="-6.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orologio e Svelgia" textAlignment="CENTER">
+               <font>
+                  <Font name="Amiri Quran" size="12.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="280.0" prefHeight="71.0" prefWidth="800.0" style="-fx-background-color: #C06c84;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutY="280.0" prefHeight="71.0" prefWidth="800.0" style="-fx-background-color: #7289DA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <ImageView fx:id="SystemComponent_BluetoothIcon" fitHeight="34.0" fitWidth="38.0" layoutX="741.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="25.0">
                <image>
@@ -26,5 +31,20 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fx:id="AppComponent_AppIcon1" fitHeight="62.0" fitWidth="376.0" layoutX="246.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/iconfinder_clock_299080%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="AppComponent_AppIcon11" fitHeight="62.0" fitWidth="376.0" layoutX="456.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/iconfinder_clock_299080%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="AppComponent_AppIcon111" fitHeight="62.0" fitWidth="376.0" layoutX="672.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/iconfinder_clock_299080%20(3).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
