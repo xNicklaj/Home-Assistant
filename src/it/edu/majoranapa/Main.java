@@ -1,8 +1,11 @@
 package it.edu.majoranapa;
 
+import it.edu.majoranapa.network.SocketIO;
+
 public class Main {
 	public static void main(String[] args) throws InterruptedException 
-	{	
+	{
+		Thread server = new Thread(new SocketIO(3050)); // Start server
 		while(Console.newCommand() != -2)
 			System.out.println("return: " + Console.getLastReturnValue());
 		
