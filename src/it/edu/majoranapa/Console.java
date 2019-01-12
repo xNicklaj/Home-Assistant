@@ -3,11 +3,12 @@ package it.edu.majoranapa;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
 import it.edu.majoranapa.io.*;
+import it.edu.majoranapa.network.*;
 import it.edu.majoranapa.customplayer.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaException;
 
-public class Console extends Thread{
+public class Console{
 	private String lastCommand = "";
 	private int lastReturnValue = 0;
 	private String command = "";
@@ -168,10 +169,11 @@ public class Console extends Thread{
 
 	private int network()
 	{
+		SocketIO socket = new SocketIO(3305);
 		if(this.getParam("ip=") == "" || this.getParam("command=") == "")
 			return -1;
 		else
-//E.G.		Network.sendcommand(this.getParam("ip="), this.getParam("command=");
+			SocketIO.sendMessage(this.getParam("ip="), this.getParam("command="));
 		
 		return -1;
 	}
@@ -185,6 +187,7 @@ public class Console extends Thread{
 	{
 		super();
 		scan = new Scanner(System.in);
+		System.out.println("Console on");
 	}
 
 	/**
@@ -260,15 +263,5 @@ public class Console extends Thread{
 	public void close()
 	{
 		scan.close();
-	}
-
-	public void run()
-	{
-		try {
-			this.newCommand();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

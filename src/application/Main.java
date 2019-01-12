@@ -25,9 +25,9 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 			//primaryStage.setFullScreen(true);
 			primaryStage.setTitle("Home Assistant");
 			primaryStage.setScene(scene);
+			it.edu.majoranapa.Main.console();
 		//	controller.setBackgroundImage();
 			primaryStage.show();
-			it.edu.majoranapa.Main.console();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

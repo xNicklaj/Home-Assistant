@@ -17,18 +17,16 @@ public class Main {
 
 }
 
-class MainThread extends Thread {
+class MainThread implements Runnable {
 	public void run()
 	{
 		Console CUI = new Console();
-		while(true)
-		{
 			try {
 				CUI.newCommand();
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("return: " + CUI.getLastReturnValue());
-		}
 	}
 }
