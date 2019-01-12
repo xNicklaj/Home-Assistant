@@ -165,6 +165,16 @@ public class Console extends Thread{
 		return -1;
 	}
 
+	private int network()
+	{
+		if(this.getParam("ip=") == "" || this.getParam("command=") == "")
+			return -1;
+		else
+//E.G.		Network.sendcommand(this.getParam("ip="), this.getParam("command=");
+		
+		return -1;
+	}
+	
 	/**
 	 * This is a class Constructor.
 	 * @param volume
@@ -228,6 +238,9 @@ public class Console extends Thread{
 
 			else if(command.substring(0, 7).contains("media"))
 				return media();
+			
+			else if(command.substring(0, 5).contains("net"))
+				return network();
 
 			else if(command.substring(0, 7).contains("exit"))
 				System.exit(0);
