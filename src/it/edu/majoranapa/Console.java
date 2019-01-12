@@ -166,14 +166,27 @@ public class Console{
 
 		return -1;
 	}
+	
+	private static int getLastParamFinalIndex()
+	{
+		int i = command.lastIndexOf('=');
+		while(command.charAt(i) != ' ')
+		{
+			i++;
+		}
+		
+		return i;
+	}
 
 	private static int network()
 	{
 		if(getParam("ip=") == "" || getParam("command=") == "")
 			return -1;
 		else
-			SocketIO.sendMessage(getParam("ip="), getParam("command="));
-		
+			if(getParam("port=") != "")
+				SocketIO.sendMessage(getParam("ip="), command.substring(getLastParamFinalIndex()), Integer.parseInt(getParam("port=")));
+			else
+				SocketIO.sendMessage(getParam("ip="), command.substring(getLastParamFinalIndex()));
 		return -1;
 	}
 	
@@ -195,6 +208,10 @@ public class Console{
 	 * @return
 	 * Return value of the last command.
 	 */
+	public static int getLastReturnValue()
+	{
+		return lastReturnValue;
+	}
 
 	/**
 	 * This method returns a string containing the last

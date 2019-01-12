@@ -3,9 +3,8 @@ package it.edu.majoranapa;
 public class Main {
 	public static void main(String[] args) throws InterruptedException 
 	{	
-		Console CUI = new Console();
-		while(CUI.newCommand() != -2)
-			System.out.println("return: " + CUI.getLastReturnValue());
+		while(Console.newCommand() != -2)
+			System.out.println("return: " + Console.getLastReturnValue());
 		
 		System.exit(0);
 	}
@@ -20,13 +19,12 @@ public class Main {
 class MainThread implements Runnable {
 	public void run()
 	{
-		Console CUI = new Console();
 			try {
-				CUI.newCommand();
+				Console.newCommand();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("return: " + CUI.getLastReturnValue());
+			System.out.println("return: " + Console.getLastReturnValue());
 	}
 }
