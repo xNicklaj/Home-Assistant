@@ -49,20 +49,21 @@ public class Console extends Thread{
 	private int timer() throws InterruptedException
 	{
 		VirtualTimer timer = new VirtualTimer();
+		Thread thread = new Thread(timer);
 		if(command.contains("start"))
 		{
 			if(!command.contains("delay"))
 				return -1;
 
 			timer.setDelay(Integer.parseInt(getParam("delay=")));
-			timer.start();
-			timer.join();
+			thread.start();
+			thread.join();
 			return 0;
 		}
 
 		if(command.contains("stop"))
 		{
-			timer.join();
+			thread.join();
 			return 0;
 		}
 

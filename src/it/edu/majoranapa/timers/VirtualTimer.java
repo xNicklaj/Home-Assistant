@@ -2,7 +2,7 @@ package it.edu.majoranapa.timers;
 
 import java.util.Timer;
 
-public class VirtualTimer extends Thread{
+public class VirtualTimer implements Runnable{
 	private Timer timer = new Timer();
 	private Task_PlayAlarm task = new Task_PlayAlarm();
 	private int delay = 0;
