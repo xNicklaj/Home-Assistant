@@ -12,33 +12,8 @@ public class Console{
 	private static String lastCommand = "";
 	private static int lastReturnValue = 0;
 	private static String command = "";
-	private static Scanner scan;
+	private static Scanner scan = new Scanner(System.in);
 	private static TimeBased_Alarms alarm = new TimeBased_Alarms();
-
-	/**
-	 * This method helps by getting a certain passed parameter.
-	 * @param param
-	 * Parameter to look for.
-	 * @return
-	 * String containing the value of the parameter.
-	 * Example:
-	 * In the command "timer start delay=4",
-	 * The return string will be "4"
-	 */
-	public static String getParam(String param)
-	{
-		if(command.contains(param))
-		{
-			try {
-				return command.substring(command.indexOf(param) + param.length(), command.indexOf(' ', command.indexOf(param)));
-			}
-			catch(java.lang.StringIndexOutOfBoundsException e)
-			{
-				return command.substring(command.indexOf(param) + param.length());
-			}
-		}
-		return "";
-	}
 
 	/**
 	 * This method handles timers.
@@ -169,7 +144,7 @@ public class Console{
 	
 	private static int getLastParamFinalIndex()
 	{
-		int i = command.lastIndexOf('=');
+		int i = command.substring(0, 26).lastIndexOf('=');
 		while(command.charAt(i) != ' ')
 		{
 			i++;
@@ -190,6 +165,31 @@ public class Console{
 		return -1;
 	}
 	
+	/**
+	 * This method helps by getting a certain passed parameter.
+	 * @param param
+	 * Parameter to look for.
+	 * @return
+	 * String containing the value of the parameter.
+	 * Example:
+	 * In the command "timer start delay=4",
+	 * The return string will be "4"
+	 */
+	public static String getParam(String param)
+	{
+		if(command.contains(param))
+		{
+			try {
+				return command.substring(command.indexOf(param) + param.length(), command.indexOf(' ', command.indexOf(param)));
+			}
+			catch(java.lang.StringIndexOutOfBoundsException e)
+			{
+				return command.substring(command.indexOf(param) + param.length());
+			}
+		}
+		return "";
+	}
+
 	/**
 	 * This is a class Constructor.
 	 * @param volume
