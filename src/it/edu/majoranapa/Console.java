@@ -150,12 +150,12 @@ public class Console{
 			i++;
 		}
 		
-		return i;
+		return i + 1;
 	}
 
 	private static int network()
 	{
-		if(getParam("ip=") == "" || getParam("command=") == "")
+		if(getParam("ip=") == "")
 			return -1;
 		else
 			if(getParam("port=") != "")
