@@ -219,7 +219,6 @@ public class Console{
 	
 	public static int getCommand() {
 		System.out.println("Console on");
-		lastCommand = command;
 		command = scan.nextLine();
 		return newCommand(command);
 	}
@@ -268,6 +267,10 @@ public class Console{
 		catch(Exception e)
 		{
 			return -1;
+		}
+		finally
+		{
+			lastCommand = command;
 		}
 
 		return 0;
