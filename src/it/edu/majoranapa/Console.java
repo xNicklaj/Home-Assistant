@@ -204,6 +204,7 @@ public class Console{
 	public static String getLastCommand()
 	{
 		return lastCommand; 
+		//test
 	}
 
 	/**
