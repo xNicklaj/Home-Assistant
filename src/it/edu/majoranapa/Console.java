@@ -216,12 +216,22 @@ public class Console{
 	 * Might throw an exception due to timers threaded nature.
 	 * Anyways, it should be checked automatically.
 	 */
-	public static int newCommand() throws InterruptedException
-	{
+	
+	public static int getCommand() {
 		System.out.println("Console on");
 		lastCommand = command;
+		command = scan.nextLine();
+		return newCommand(command);
+	}
+	
+	public static int newCommand(String command)
+	{
+		/*System.out.println("Console on");
+		lastCommand = command;
 		command = scan.nextLine().toLowerCase();
+		*/
 		try {
+			
 			/*
 			 * Commands:
 			 * 	start delay=n
@@ -255,10 +265,11 @@ public class Console{
 				return lastReturnValue = network();
 
 		}
-		catch(StringIndexOutOfBoundsException e)
+		catch(Exception e)
 		{
 			return -1;
 		}
+
 		return 0;
 	}
 

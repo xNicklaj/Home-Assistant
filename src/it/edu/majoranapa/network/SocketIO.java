@@ -34,7 +34,7 @@ public class SocketIO implements Runnable {
 		while(true) {
 			try {
 				line = in.nextLine();
-				Console.getParam(line);
+				Console.newCommand(line);
 			} catch (NoSuchElementException e) {
 				socket.close();
 				socket = server.accept();

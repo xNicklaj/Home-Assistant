@@ -7,7 +7,7 @@ public class Main {
 	{
 		Thread server = new Thread(new SocketIO(3050));
 		server.start(); // Start server listening
-		while(Console.newCommand() != -2)
+		while(Console.getCommand() != -2)
 			System.out.println("return: " + Console.getLastReturnValue());
 		
 		System.exit(0);
@@ -23,12 +23,8 @@ public class Main {
 class MainThread implements Runnable {
 	public void run()
 	{
-			try {
-				Console.newCommand();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("return: " + Console.getLastReturnValue());
+		Console.getCommand();
+
+		System.out.println("return: " + Console.getLastReturnValue());
 	}
 }
