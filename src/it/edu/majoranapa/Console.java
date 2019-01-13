@@ -144,7 +144,7 @@ public class Console{
 				SocketIO.sendMessage(getParam("ip="), command.substring(getLastParamFinalIndex()), Integer.parseInt(getParam("port=")));
 			else
 				SocketIO.sendMessage(getParam("ip="), command.substring(getLastParamFinalIndex()));
-		return -1;
+		return 0;
 	}
 	
 	/**
