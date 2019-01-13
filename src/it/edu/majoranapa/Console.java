@@ -115,24 +115,6 @@ public class Console{
 			System.out.println("file://" + PathFinder.getResourcePath(getParam("file=")));
 		}
 		player = new Player(null);
-		if(command.contains("play"))
-		{
-			player.playMedia();
-			return 0;
-		}
-
-		if(command.contains("pause"))
-		{
-			player.pauseMedia();
-			return 0;
-		}
-
-		if(command.contains("mute"))
-		{
-			player.toggleMute();
-			return 0;
-		}
-
 		if(command.contains("setvolume"))
 		{
 			player.setVolumePercentage(Float.parseFloat(getParam("volume=")));
@@ -235,6 +217,7 @@ public class Console{
 	 */
 	public static int newCommand() throws InterruptedException
 	{
+		System.out.println("Console on");
 		lastCommand = command;
 		command = scan.nextLine().toLowerCase();
 		try {
@@ -243,23 +226,33 @@ public class Console{
 			 * 	start delay=n
 			 * 	stop
 			 */
-			if(command.substring(0, 7).contains("timer"))
-				return timer();
+			
+			if(command.contains("lastcmd"))
+			{
+				if(lastCommand == "")
+					return lastReturnValue = -1;
+				
+				command = lastCommand;
+			}
+			
+			if(command.substring(0, 4).contains("exit"))
+				System.exit(0);
+			
+			else if(command.substring(0, 7).contains("timer"))
+				return lastReturnValue = timer();
 
 			else if(command.substring(0, 7).contains("alarm"))
-				return alarm();
+				return lastReturnValue = alarm();
 
 			else if(command.substring(0, 7).contains("audio"))
-				return audio();
+				return lastReturnValue = audio();
 
 			else if(command.substring(0, 7).contains("media"))
-				return media();
+				return lastReturnValue = media();
 			
 			else if(command.substring(0, 5).contains("net"))
-				return network();
+				return lastReturnValue = network();
 
-			else if(command.substring(0, 7).contains("exit"))
-				System.exit(0);
 		}
 		catch(StringIndexOutOfBoundsException e)
 		{
