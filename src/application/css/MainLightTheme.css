@@ -1,0 +1,31 @@
+.root{
+
+}
+
+#BackgroundImageLayer{
+	-fx-background-image: url(@../../../../../resources/BackgroundImage02.jpg);
+	-fx-background-size: 100% 100%;
+}
+
+.UtilityBar{
+	-fx-background-color: #ffffff;
+	-fx-border-radius: 10 10 10 10;
+  	-fx-background-radius: 10 10 10 10;
+	-fx-opacity: 0.75;
+}
+
+#SystemText_SystemDateFormattedComponent{
+	-fx-fill: #23272a;
+}
+
+.AppComponent_AppName{
+	-fx-fill: #ffffff;
+	-fx-text-alignment: CENTER;
+	-fx-stroke-line-cap: ROUND;
+	-fx-stroke: #23272a;
+	-fx-stroke-width: .2px; 
+	-fx-stroke-type: OUTSIDE;
+	-fx-font: 12px Roboto;
+	-fx-font-family: Roboto;
+	-fx-font-size: 12px;
+}

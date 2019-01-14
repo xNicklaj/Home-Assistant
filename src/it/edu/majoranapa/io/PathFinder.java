@@ -102,6 +102,7 @@ public class PathFinder {
 	 */
 	public static String getResourcePath(String resource)
 	{
+		filePath = Main.class.getResource(Main.class.getSimpleName() + ".class").toString();
 		int endIndex = evaluateProgPath();
 		return filePath.substring(0, endIndex) + "resources/" + resource;
 	}

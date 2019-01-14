@@ -1,10 +1,10 @@
 package application.controller;
 
+import it.edu.majoranapa.io.DateAndTime;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import it.edu.majoranapa.io.*;
 
 public class MainController {
 
@@ -12,15 +12,43 @@ public class MainController {
     private AnchorPane rootObject;
 
     @FXML
-    private AnchorPane AppComponent;
+    private AnchorPane BlurringPanel;
 
     @FXML
-    private Text AppComponent_AppName;
+    private AnchorPane DimmingPanel;
 
     @FXML
-    private ImageView AppComponent_AppIcon;
+    private AnchorPane AppComponent_ListsApp;
 
     @FXML
-    private ImageView SystemComponent_BluetoothIcon;
+    private ImageView AppComponent_ListsAppIcon;
 
+    @FXML
+    private Text AppComponent_ListsAppText;
+
+    @FXML
+    private AnchorPane AppComponent_ClockApp;
+
+    @FXML
+    private ImageView AppComponent_ClockAppIcon;
+
+    @FXML
+    private Text AppComponent_ClockAppText;
+
+    @FXML
+    private AnchorPane UtilityBar;
+
+    @FXML
+    private Text SystemText_FormattedDateComponent;
+
+    @FXML
+    private ImageView SystemIcon_BluetoothIcon;
+
+    private DateAndTime updater = new DateAndTime();
+    
+    
+    public void setDateFormatted()
+    {
+    	SystemText_FormattedDateComponent.setText(updater.DateFormatter());
+    }
 }
