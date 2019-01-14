@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,6 +9,11 @@
 
 <AnchorPane id="#anchor" fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #36393F;" stylesheets="@css/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
+      <AnchorPane id="BackgroundImageLayer" prefHeight="480.0" prefWidth="800.0" stylesheets="@css/Main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <GaussianBlur radius="5"/>
+         </effect>
+      </AnchorPane>
       <AnchorPane id="AppComponent_Clock" fx:id="AppComponent" layoutX="42.0" layoutY="38.0" prefHeight="85.0" prefWidth="60.0" stylesheets="@css/Main.css">
          <children>
             <ImageView id="AppComponent_ClockAppIcon" fx:id="AppComponent_AppIcon" fitHeight="62.0" fitWidth="376.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
