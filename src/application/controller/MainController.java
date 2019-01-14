@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -22,11 +22,5 @@ public class MainController {
 
     @FXML
     private ImageView SystemComponent_BluetoothIcon;
-    
-    public void setBackgroundImage()
-    {
-    	rootObject = new AnchorPane();
-    	rootObject.setStyle("-fx-background-image: " + PathFinder.getResourcePath("BackgroundImage") + ";");
-    }
 
 }

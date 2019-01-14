@@ -1,0 +1,17 @@
+.root{
+	-fx-background-color: #2c2f33;
+}
+
+#UpperPane{
+	-fx-background-color: #23272a;
+}
+
+#JFXTimePicker{
+	-fx-background-color: #23272a; 
+	-fx-text-fill: #ffffff;
+}
+
+#JFXButton{
+	-fx-background-color: #99aab5;
+	-fx-text-fill: #ffffff;
+}
