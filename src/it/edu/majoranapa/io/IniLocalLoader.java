@@ -93,11 +93,12 @@ public class IniLocalLoader {
 	public static void iniLoad() throws IOException
 	{
 		try {
-			ini = new Wini(new File(PathFinder.getResourcePath("config/local.ini")));
 			if(Files.notExists(Paths.get(PathFinder.getResourcePath("config/local.ini"))))
 			{
 				createIni();
 			}
+			ini = new Wini(new File(PathFinder.getResourcePath("config/local.ini")));
+			ini.load();
 			updateIniValues();
 		}
 		catch(NullPointerException e)
