@@ -11,7 +11,7 @@ import it.edu.majoranapa.network.DHCPManager;
 
 import org.ini4j.Wini;
 
-public class IniLoaderLocal {
+public class IniLocalLoader {
 	private static Wini ini;
 	private static Theme theme = Theme.LIGHT;
 	private static String dateFormat = "dd/MM/yyyy";

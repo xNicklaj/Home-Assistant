@@ -1,13 +1,19 @@
 package it.edu.majoranapa.lists;
 
+import java.io.IOException;
+
+import it.edu.majoranapa.io.IniListLoader;
+
 public class List {
 	private String name = "";
 	private String[] sectors;
 	private int numberOfSectors = 0;
+	private IniListLoader loader;
 	
-	public void setName(String name)
+	public List(String name)
 	{
 		this.name = name;
+		loader = new IniListLoader(name);
 	}
 	
 	public void addSectors(String[] sectors)
@@ -44,11 +50,6 @@ public class List {
 				sectorsCounter++;
 		}
 		newArr = new String[sectorsCounter];
-		/*
-		for(int i; i < sectors.length(); i++)
-		{
-			if(sectors.charAt(i) == '-' && sectors.charAt(i + 1) == '-')
-			*/
 		
 		sectorsCounter = 0;
 		while(i < sectors.length())
@@ -65,30 +66,21 @@ public class List {
 		}
 		
 		this.sectors = newArr;
-		
-		/*
-		if(numberOfSectors == 0)
-		{
-			this.sectors = new String[sectors.length];
-		}
-		else
-		{
-			for(int i = 0; i < this.sectors.length; i++)
-			{
-				newArr[i] = sectors[i];
-			}
-		}
-		for(int i = numberOfSectors; i < numberOfSectors + sectors.length; i++)
-		{
-			newArr[i] = sectors[i - this.sectors.length]; 
-		}
-		
-		this.sectors = newArr;*/
 	}
 	
 	public String getName()
 	{
 		return this.name;
+	}
+	
+	public void storeToIni() throws IOException
+	{
+		loader.storeToIni(sectors);
+	}
+	
+	public void retrieveFromIni()
+	{
+		sectors = loader.getListSectors(name);
 	}
 	
 	public String toString()

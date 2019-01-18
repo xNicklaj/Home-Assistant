@@ -7,12 +7,13 @@ import java.nio.file.Paths;
 
 import org.ini4j.Wini;
 
-public class IniLoaderList {
+public class IniListLoader {
 	private Wini ini;
 	private String listName = "";
 	
-	public IniLoaderList()
+	public IniListLoader(String listName)
 	{
+		this.listName = listName;
 		try {
 			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata"))))
 				Files.createDirectory(Paths.get(PathFinder.getResourcePath("userdata")));
@@ -27,16 +28,31 @@ public class IniLoaderList {
 		}
 	}
 	
-	public void storeToIni(String listName, String[] listSectors) throws IOException
+	public void storeToIni(String[] sectorsList) throws IOException
 	{
-		for(int i = 0; i < listSectors.length; i++)
-			ini.put(listName, "sector" + (i + 1), listSectors[i]);
+		for(int i = 0; i < sectorsList.length; i++)
+			ini.put(listName, "sector" + (i + 1), sectorsList[i]);
 		
 		ini.store();
 	}
 	
-	public void getListSectors(String listname)
+	public String[] getListSectors(String listName)
 	{
-		//TO-DO Add getter
+		String[] newArr;
+		int sectorsNumber = 0;
+		while(true)
+		{
+			try {
+				ini.get(listName, "sector" + (sectorsNumber + 1));
+			}catch(NullPointerException e)
+			{	
+				break;
+			}
+		}
+		newArr = new String[sectorsNumber];
+		for(int i = 0; i < sectorsNumber; i++)
+			newArr[i] = ini.get(listName, "Sector" + (i + 1));
+		
+		return newArr;
 	}
 }
