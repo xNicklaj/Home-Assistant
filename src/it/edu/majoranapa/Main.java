@@ -1,5 +1,8 @@
 package it.edu.majoranapa;
 
+import java.io.IOException;
+
+import it.edu.majoranapa.io.iniLoader;
 import it.edu.majoranapa.network.SocketIO;
 
 public class Main {
@@ -7,6 +10,12 @@ public class Main {
 	{
 		Thread server = new Thread(new SocketIO(3050));
 		server.start(); // Start server listening
+		try {
+			iniLoader.iniLoad();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		while(Console.getCommand() != -2)
 			System.out.println("return: " + Console.getLastReturnValue());
 		

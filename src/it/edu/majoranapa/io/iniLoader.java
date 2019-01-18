@@ -27,7 +27,7 @@ public class iniLoader {
 		int i = -1;
 		do {
 			i++;
-			if(ini.get("localConfig", "theme") == themes[i].toString())
+			if(ini.get("localConfig", "theme").toLowerCase().equals(themes[i].toString().toLowerCase()))
 			{
 				hasBeenFound = true;
 			}
@@ -42,13 +42,13 @@ public class iniLoader {
 	private static String evaluateDeviceTimezone() throws InputMismatchException
 	{
 		boolean hasBeenFound = false;
-		int i = 0;
+		int i = -1;
 		do
 		{
 			i++;
-			if(ini.get("timezoneConfig", "deviceTimezone") == "UTC+"+ i)
+			if(ini.get("timezoneConfig", "deviceTimezone").toUpperCase().equals("UTC+" + i))
 				hasBeenFound = true;
-			if(ini.get("timezoneConfig", "deviceTimezone") == "UTC-"+ i)
+			if(ini.get("timezoneConfig", "deviceTimezone").toUpperCase().equals("UTC-" + i))
 			{
 				hasBeenFound = true;
 				i = -i;
@@ -68,8 +68,8 @@ public class iniLoader {
 	
 	public static void createIni() throws IOException
 	{
+		Files.createDirectories(Paths.get(PathFinder.getResourcePath("config")));
 		Files.createFile(Paths.get(PathFinder.getResourcePath("config/user.ini")));
-		ini = new Wini(new File(PathFinder.getResourcePath("config/user.ini")));
 		ini.put("localConfig", "theme", "light");
 		ini.put("timezoneConfig", "dateFormat", "dd/MM/yyyy");
 		ini.put("timezoneConfig", "timeFormat", "hh:mm");
@@ -81,10 +81,12 @@ public class iniLoader {
 	
 	public static void iniLoad() throws IOException
 	{
+		ini = new Wini(new File(PathFinder.getResourcePath("config/user.ini")));
 		if(Files.notExists(Paths.get(PathFinder.getResourcePath("config/user.ini"))))
 		{
 			createIni();
 		}
+		updateIniValues();
 	}
 	
 	public static int updateIniValues() throws IOException
@@ -100,7 +102,7 @@ public class iniLoader {
 			ini.store();
 			theme = evaluateThemes();
 		}
-		switch(ini.get("timezoneConfig", "dataFormat").toLowerCase())
+		switch(ini.get("timezoneConfig", "dateFormat").toLowerCase())
 		{
 		case "dd/mm/yyyy":
 		case "mm/dd/yyyy":

@@ -54,31 +54,6 @@ public class PathFinder {
 	}
 
 	/**
-	 * This is a class constructor.
-	 * It sets the path of the Main class, and prepares it
-	 * to be used in other methods from this Class.
-	 */
-	public PathFinder()
-	{
-		filePath = Main.class.getResource(Main.class.getSimpleName() + ".class").toString();
-	}
-
-	/**
-	 * This is a class constructor.
-	 * It sets the path of a custom class, and prepares it
-	 * to be used in other methods from this Class.
-	 * This is useful if your Main class has been renamed or refactored.
-	 * @param filePath
-	 * This is the path of the custom class to load.
-	 * Example:
-	 * new PathFinder(CustomClass.class.getResource(CustomClass.class.getSimpleName() + ".class").toString());
-	 */
-	public PathFinder(String newFilePath)
-	{
-		filePath = newFilePath;
-	}
-	
-	/**
 	 * This method sets the path of a custom class, and prepares it
 	 * to be used in other methods from this Class.
 	 * This is useful if your Main class has been renamed or refactored.
@@ -88,9 +63,9 @@ public class PathFinder {
 	 * new PathFinder(CustomClass.class.getResource(CustomClass.class.getSimpleName() + ".class").toString());
 	 */
 	
-	public static void setFilePath(String newFilePath)
+	public static void setMainClassPath()
 	{
-		filePath = newFilePath;
+		filePath = Main.class.getResource(Main.class.getSimpleName() + ".class").toString();;
 	}
 	
 	/**
@@ -102,8 +77,9 @@ public class PathFinder {
 	 */
 	public static String getResourcePath(String resource)
 	{
+		setMainClassPath();
 		int endIndex = evaluateProgPath();
-		return filePath.substring(0, endIndex) + "resources/" + resource;
+		return filePath.substring(1, endIndex) + "resources/" + resource;
 	}
 	
 }
