@@ -11,7 +11,7 @@ import it.edu.majoranapa.network.DHCPManager;
 
 import org.ini4j.Wini;
 
-public class iniLoader {
+public class IniLoaderLocal {
 	private static Wini ini;
 	private static Theme theme = Theme.LIGHT;
 	private static String dateFormat = "dd/MM/yyyy";
@@ -69,7 +69,18 @@ public class iniLoader {
 	public static void createIni() throws IOException
 	{
 		Files.createDirectories(Paths.get(PathFinder.getResourcePath("config")));
-		Files.createFile(Paths.get(PathFinder.getResourcePath("config/user.ini")));
+		Files.createFile(Paths.get(PathFinder.getResourcePath("config/local.ini")));
+		ini.put("localConfig", "theme", "light");
+		ini.put("timezoneConfig", "dateFormat", "dd/MM/yyyy");
+		ini.put("timezoneConfig", "timeFormat", "hh:mm");
+		ini.put("timezoneConfig", "deviceTimezone", "UTC+1");
+		ini.put("networkConfig", "useDHCP", "true");
+		ini.put("networkConfig", "deviceIP", DHCPManager.updateIP());
+		ini.store();
+	}
+	
+	public static void updateIni() throws IOException
+	{
 		ini.put("localConfig", "theme", "light");
 		ini.put("timezoneConfig", "dateFormat", "dd/MM/yyyy");
 		ini.put("timezoneConfig", "timeFormat", "hh:mm");
@@ -81,12 +92,18 @@ public class iniLoader {
 	
 	public static void iniLoad() throws IOException
 	{
-		ini = new Wini(new File(PathFinder.getResourcePath("config/user.ini")));
-		if(Files.notExists(Paths.get(PathFinder.getResourcePath("config/user.ini"))))
-		{
-			createIni();
+		try {
+			ini = new Wini(new File(PathFinder.getResourcePath("config/local.ini")));
+			if(Files.notExists(Paths.get(PathFinder.getResourcePath("config/local.ini"))))
+			{
+				createIni();
+			}
+			updateIniValues();
 		}
-		updateIniValues();
+		catch(NullPointerException e)
+		{
+			updateIni();
+		}
 	}
 	
 	public static int updateIniValues() throws IOException
@@ -160,11 +177,7 @@ public class iniLoader {
 			DHCPManager.updateIP();
 		}
 		deviceIP = ini.get("networkConfig", "deviceIP");
-		
-		
-		
-		
-		
+
 		return 0;
 	}
 	
