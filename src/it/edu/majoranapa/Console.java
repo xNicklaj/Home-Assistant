@@ -1,5 +1,7 @@
 package it.edu.majoranapa;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
 import it.edu.majoranapa.io.*;
@@ -218,17 +220,13 @@ public class Console{
 	 */
 	
 	public static int getCommand() {
-		System.out.println("Console on");
+		System.out.print(PathFinder.getProjectPath() + ">");
 		command = scan.nextLine();
 		return newCommand(command);
 	}
 	
 	public static int newCommand(String command)
 	{
-		/*System.out.println("Console on");
-		lastCommand = command;
-		command = scan.nextLine().toLowerCase();
-		*/
 		try {
 			
 			/*
