@@ -3,6 +3,7 @@ package it.edu.majoranapa.io;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
 
@@ -68,15 +69,18 @@ public class IniLocalLoader {
 	
 	public static void createIni() throws IOException
 	{
-		Files.createDirectories(Paths.get(PathFinder.getResourcePath("config")));
-		Files.createFile(Paths.get(PathFinder.getResourcePath("config/local.ini")));
-		ini.put("localConfig", "theme", "light");
-		ini.put("timezoneConfig", "dateFormat", "dd/MM/yyyy");
-		ini.put("timezoneConfig", "timeFormat", "hh:mm");
-		ini.put("timezoneConfig", "deviceTimezone", "UTC+1");
-		ini.put("networkConfig", "useDHCP", "true");
-		ini.put("networkConfig", "deviceIP", DHCPManager.updateIP());
-		ini.store();
+		try {
+			if(Files.notExists(Paths.get(PathFinder.getProjectPath() + "/config")))
+				Files.createDirectories(Paths.get(PathFinder.getProjectPath() + "/config"));
+			if(Files.notExists(Paths.get(PathFinder.getProjectPath() + "/config/local.ini")))
+				Files.createFile(Paths.get(PathFinder.getProjectPath() + "/config/local.ini"));
+		}catch(InvalidPathException e)
+		{
+			if(Files.notExists(Paths.get(PathFinder.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6) + "config")))
+				Files.createDirectories(Paths.get(PathFinder.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6) + "config"));
+			if(Files.notExists(Paths.get(PathFinder.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6) + "config/local.ini")))
+				Files.createFile(Paths.get(PathFinder.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6) + "config/local.ini"));
+		}
 	}
 	
 	public static void updateIni() throws IOException
@@ -93,11 +97,8 @@ public class IniLocalLoader {
 	public static void iniLoad() throws IOException
 	{
 		try {
-			if(Files.notExists(Paths.get(PathFinder.getResourcePath("config/local.ini"))))
-			{
-				createIni();
-			}
-			ini = new Wini(new File(PathFinder.getResourcePath("config/local.ini")));
+			createIni();
+			ini = new Wini(new File(PathFinder.getProjectPath().toString() + "/config/local.ini"));
 			ini.load();
 			updateIniValues();
 		}

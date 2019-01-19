@@ -1,21 +1,20 @@
 package it.edu.majoranapa.io;
 
-import it.edu.majoranapa.Main;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class PathFinder {
-	private static String filePath = "";
+	private static Path projectPath = Paths.get(new File("").getAbsolutePath());
 	
-	/**
-	 * This method retrieves the path of a file into the /resources folder.
-	 * @param resource
-	 * name + extension of the file to retrieve as a String.
-	 * @return
-	 * This method returns the absolute path of the file.
-	 */
+	public static Path getProjectPath()
+	{
+		return projectPath;
+	}
 	
 	public static String getResourcePath(String resource)
 	{
-		return Main.getProjectPath() + "/resources/" + resource;
+		return getProjectPath() + "/resources/" + resource;
 	}
 	
 }
