@@ -15,16 +15,16 @@ public class IniListLoader {
 	{
 		this.listName = listName;
 		try {
-			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata"))))
-				Files.createDirectory(Paths.get(PathFinder.getResourcePath("userdata")));
-			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata/lists.ini"))))
-				Files.createFile(Paths.get(PathFinder.getResourcePath("userdata/lists.ini")));
-			ini = new Wini(new File(PathFinder.getResourcePath("userdata/lists.ini")));
-		}catch(NullPointerException e)
+			if(Files.notExists(Paths.get(PathFinder.getProjectPath() + "/userdata")))
+				Files.createDirectory(Paths.get(PathFinder.getProjectPath() + "/userdata"));
+			if(Files.notExists(Paths.get(PathFinder.getProjectPath() + "/resources/userdata")))
+				Files.createDirectory(Paths.get(PathFinder.getProjectPath() + "/resources/userdata"));
+			if(Files.notExists(Paths.get(PathFinder.getProjectPath() + "/userdata/lists.ini")))
+				Files.createFile(Paths.get(PathFinder.getProjectPath() + "/userdata/lists.ini"));
+			ini = new Wini(new File(PathFinder.getProjectPath() + "/userdata/lists.ini"));
+		}catch(IOException e)
 		{
-			System.err.println("Non ci sono liste.");
-		} catch (IOException e) {
-			System.err.println("Non ci sono liste.");
+			e.printStackTrace();
 		}
 	}
 	
