@@ -1,8 +1,11 @@
 package application;
 
+import java.io.IOException;
+
 import com.gluonhq.charm.glisten.application.MobileApplication;
 
 import application.controller.*;
+import it.edu.majoranapa.io.IniLocalLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -16,6 +19,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			IniLocalLoader.iniLoad();
 			SceneSwitcher switcher = new SceneSwitcher(primaryStage);
 			switcher.switchToMain();
 		} catch(Exception e) {

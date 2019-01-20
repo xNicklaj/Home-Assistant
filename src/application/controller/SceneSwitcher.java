@@ -2,6 +2,8 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.enums.Theme;
+import it.edu.majoranapa.io.IniLocalLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,7 +36,10 @@ public class SceneSwitcher {
 		}
 		root.setId("anchor");
 		mainScene = new Scene(root, 800,480);
-		mainScene.getStylesheets().add(getClass().getResource("../css/MainDarkTheme.css").toExternalForm());
+		if(IniLocalLoader.getTheme().equals(Theme.LIGHT))
+			mainScene.getStylesheets().add(getClass().getResource("../css/MainLightTheme.css").toExternalForm());
+		else if(IniLocalLoader.getTheme().equals(Theme.DARK))
+			mainScene.getStylesheets().add(getClass().getResource("../css/MainDarkTheme.css").toExternalForm());
 		
 		primaryStage.setScene(mainScene);
 		primaryStage.show();
