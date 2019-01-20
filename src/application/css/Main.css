@@ -7,3 +7,8 @@
 	-fx-border-radius: 10 10 10 10;
 	-fx-background-color: #ffffff;
 }
+
+.roomSelector{
+	-fx-background-color: #000000;
+	-fx-opacity: .15;
+}
