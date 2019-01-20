@@ -9,23 +9,30 @@ import org.ini4j.Wini;
 
 public class IniListLoader {
 	private Wini ini;
+	private String fileName = "";
 	private String listName = "";
 	
-	public IniListLoader(String listName)
+	public IniListLoader(String filename, String listName)
 	{
 		this.listName = listName;
+		this.fileName = filename;
 		try {
 			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata"))))
 				Files.createDirectory(Paths.get(PathFinder.getResourcePath("userdata")));
-			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata/lists.ini"))))
-				Files.createFile(Paths.get(PathFinder.getResourcePath("userdata/lists.ini")));
-			ini = new Wini(new File(PathFinder.getResourcePath("userdata/lists.ini")));
+			if(Files.notExists(Paths.get(PathFinder.getResourcePath("userdata/" + fileName + ".ini"))))
+				Files.createFile(Paths.get(PathFinder.getResourcePath("userdata/" + fileName + ".ini")));
+			ini = new Wini(new File(PathFinder.getResourcePath("userdata/" + fileName + ".ini")));
 		}catch(NullPointerException e)
 		{
 			System.err.println("Non ci sono liste.");
 		} catch (IOException e) {
 			System.err.println("Non ci sono liste.");
 		}
+	}
+	
+	public Wini overrideIniUsage()
+	{
+		return ini;
 	}
 	
 	public void storeToIni(String[] sectorsList) throws IOException

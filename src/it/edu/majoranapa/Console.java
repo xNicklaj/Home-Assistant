@@ -1,6 +1,8 @@
 package it.edu.majoranapa;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
@@ -28,6 +30,7 @@ public class Console{
 	{
 		VirtualTimer timer = new VirtualTimer();
 		Thread thread = new Thread(timer);
+
 		if(command.contains("start"))
 		{
 			if(!command.contains("delay"))

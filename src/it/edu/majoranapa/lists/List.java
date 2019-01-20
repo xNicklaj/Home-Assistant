@@ -13,7 +13,7 @@ public class List {
 	public List(String name)
 	{
 		this.name = name;
-		loader = new IniListLoader(name);
+		loader = new IniListLoader("list", name);
 	}
 	
 	public void addSectors(String[] sectors)
