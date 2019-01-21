@@ -10,5 +10,28 @@
 
 .roomSelector{
 	-fx-background-color: #000000;
-	-fx-opacity: .15;
+	-fx-opacity: .25;
+}
+
+.appNameRegion{
+	-fx-background-color: #000000;
+	-fx-opacity: .25;
+}
+
+.appBorder{
+	-fx-bacgkround-color: #000000;
+	-fx-opacity: .25;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane{
+	-fx-background-color: transparent;
+}
+
+.roomButton{
+	-fx-background-colore: #000000;
+	-fx-opacity: 1;
 }
