@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="lib/charm-glisten-5.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/ini4j-0.5.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.12.jar"/>
+	<classpathentry kind="lib" path="lib/spotify-web-api-java-2.2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
