@@ -63,4 +63,13 @@ public class VirtualTimer implements Runnable{
 	{
 		timer.schedule(task, delay);
 	}
+	
+	/**
+	 * This method allows to cancel the timer.
+	 */
+	public void stopTask()
+	{
+		task.cancel();
+		timer.purge();
+	}
 }

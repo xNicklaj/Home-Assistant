@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HomeController">
+   <children>
+      <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" layoutX="24.0" layoutY="25.0" onMouseClicked="#appOpen_Timer" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
+      <MaterialDesignIconView glyphName="TIMER" layoutX="38.0" layoutY="81.0" onMouseClicked="#appOpen_Timer" size="48" />
+   </children>
+</AnchorPane>

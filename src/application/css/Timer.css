@@ -1,0 +1,36 @@
+.root{
+	-fx-background-color: #647687;
+}
+
+#notification-bar{
+	-fx-background-color: #53606d;
+}
+
+#start-button-stopped {
+	-fx-background-color: #e51400;
+	-fx-background-radius: 30em;
+}
+
+#start-button-stopped .text{
+	-fx-fill: white; 
+}
+
+#start-button-started{
+	-fx-background-color: white;
+	-fx-background-radius: 30em;
+}
+
+#start-button-started .text{
+	-fx-text-fill: #e51400;
+}
+
+.default-timers-button{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-min-width: 50px;
+	-fx-min-height: 25px;
+}
+
+#background-filled-pane{
+	-fx-background-color: #fa6800;
+}

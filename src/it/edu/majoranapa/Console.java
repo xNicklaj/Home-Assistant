@@ -1,9 +1,5 @@
 package it.edu.majoranapa;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
 import it.edu.majoranapa.io.*;
@@ -44,6 +40,7 @@ public class Console{
 
 		if(command.contains("stop"))
 		{
+			timer.stopTask();
 			thread.join();
 			return 0;
 		}
@@ -243,8 +240,10 @@ public class Console{
 				if(lastCommand == "")
 					return lastReturnValue = -1;
 				
-				command = lastCommand;
+				Console.command = lastCommand;
 			}
+			else
+				Console.command = command;
 			
 			if(command.substring(0, 4).contains("exit"))
 				System.exit(0);

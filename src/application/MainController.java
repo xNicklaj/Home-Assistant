@@ -1,32 +1,22 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
+import javafx.scene.SubScene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import it.edu.majoranapa.io.*;
 
 public class MainController {
 
     @FXML
-    private AnchorPane rootObject;
+    private AnchorPane notificationBar;
 
     @FXML
-    private AnchorPane AppComponent;
+    private SubScene app_viewport;
 
-    @FXML
-    private Text AppComponent_AppName;
+    public SubScene getApp_viewport() {
+		return app_viewport;
+	}
 
-    @FXML
-    private ImageView AppComponent_AppIcon;
-
-    @FXML
-    private ImageView SystemComponent_BluetoothIcon;
-    
-    public void setBackgroundImage()
-    {
-    	rootObject = new AnchorPane();
-    	rootObject.setStyle("-fx-background-image: " + PathFinder.getResourcePath("BackgroundImage") + ";");
-    }
-
+	public void setApp_viewport(SubScene app_viewport) {
+		this.app_viewport = app_viewport;
+	}
 }

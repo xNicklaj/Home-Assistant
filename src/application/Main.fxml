@@ -1,52 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXProgressBar?>
-<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Region?>
 
-<AnchorPane id="#anchor" fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" stylesheets="@css/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane minHeight="480.0" minWidth="720.0" styleClass="background-pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <AnchorPane prefHeight="285.0" prefWidth="289.0" style="-fx-background-color: #F2F2F2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane id="notification-bar" fx:id="notificationBar" maxHeight="25.0" minHeight="30.0" minWidth="720.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane layoutX="245.0" layoutY="115.0" prefHeight="105.0" prefWidth="720.0" style="-fx-background-color: #1197d5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Pane layoutX="11.0" layoutY="44.0" prefHeight="50.0" prefWidth="695.0">
-                     <children>
-                        <JFXButton layoutX="8.0" layoutY="13.0" text="Salotto" textFill="#fcfcfc">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton layoutX="98.0" layoutY="14.0" text="Stanza da letto" textFill="#fcfcfc">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton layoutX="254.0" layoutY="13.0" text="Cucina" textFill="#fcfcfc">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-                  <JFXProgressBar layoutY="104.0" prefHeight="0.0" prefWidth="720.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="7.0" layoutY="111.0" prefHeight="277.0" prefWidth="453.0" style="-fx-background-color: #FFFF;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="111.0">
-               <children>
-                  <Text fill="#1197d5" fontSmoothingType="LCD" layoutX="49.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luce Salotto" textAlignment="CENTER">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Text>
-                  <JFXToggleButton layoutX="198.0" layoutY="34.0" prefHeight="58.0" prefWidth="38.0" textFill="WHITE" toggleColor="#87b8ff" toggleLineColor="#3b63d0" />
-               </children>
-            </Pane>
+            <Label layoutX="346.0" layoutY="6.0" style="-fx-background-color: transparent;" text="00:00" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="6.0" />
          </children>
       </AnchorPane>
+      <SubScene fx:id="app_viewport" height="450.0" layoutY="30.0" width="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+        <root>
+          <Region />
+        </root>
+      </SubScene>
    </children>
 </AnchorPane>

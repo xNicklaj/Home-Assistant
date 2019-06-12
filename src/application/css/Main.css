@@ -1,9 +1,16 @@
-.backgroundPane{
-	-fx-background-image: url(@../../../../../resources/BackgroundImage03.jpg);
+.text{
+	-fx-text-fill: white;
+}
+
+.background-pane{
+	-fx-background-image: url(@../../../../../resources/BackgroundImage02.jpg);
 	-fx-background-size: 100% 100%;
 }
 
-.utilityBar{
-	-fx-border-radius: 10 10 10 10;
-	-fx-background-color: #ffffff;
+#notification-bar{
+	-fx-background-color: transparent;
+}
+
+#notification-bar .label{
+	-fx-text-fill: white;
 }

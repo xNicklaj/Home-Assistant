@@ -1,0 +1,6 @@
+.icon-tile{
+	-fx-stroke: none;
+	-fx-arc-height: 50;
+	-fx-arc-width: 50;
+	-fx-fill: rgba(255, 255, 255, .95); 
+}
