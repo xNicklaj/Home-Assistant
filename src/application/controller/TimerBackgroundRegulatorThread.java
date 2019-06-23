@@ -12,6 +12,7 @@ public class TimerBackgroundRegulatorThread extends Thread{
 		this.seconds = seconds;
 		this.height = height;
 		ThreadsList.timerThread = this;
+		this.setName("timer-background-regulator");
 	}
 	
 	public void toggle()

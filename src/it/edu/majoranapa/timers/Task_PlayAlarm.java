@@ -32,6 +32,27 @@ public class Task_PlayAlarm extends TimerTask{
 	}
 	
 	/**
+	 * Use this method to get the current state of the session
+	 * @return
+	 * 0 indicates that the session is playing an audio, 1 indicates
+	 * that the session is ready to play but isn't playing any audio.
+	 */
+	public int getState()
+	{
+		if(session != null)
+			return session.getClipState();
+		else 
+			return -1;
+	}
+	/**
+	 * Use this method to kill the session
+	 */
+	public void killSession()
+	{
+		session.stopAudio();
+	}
+	
+	/**
 	 * This method allows to choose the alarm tone file name.
 	 * @param tone
 	 * Alarm Tone File name as a String.

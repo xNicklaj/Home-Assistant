@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.stage.StageStyle;
 import application.controller.ControllerList;
 import application.controller.TimerController;
 
@@ -19,7 +19,7 @@ public class SceneSwitcher {
 	public SceneSwitcher(Stage primaryStage)
 	{
 		this.primaryStage = primaryStage;
-		//primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.initStyle(StageStyle.UNDECORATED);
 		//primaryStage.setFullScreen(true);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Home-Assistant");

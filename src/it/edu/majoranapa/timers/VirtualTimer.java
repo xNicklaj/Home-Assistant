@@ -69,7 +69,9 @@ public class VirtualTimer implements Runnable{
 	 */
 	public void stopTask()
 	{
+		if(task.getState() == 0)
+			task.killSession();
 		task.cancel();
-		timer.purge();
+		timer.cancel();
 	}
 }

@@ -14,6 +14,7 @@ public class Console{
 	private static String command = "";
 	private static Scanner scan = new Scanner(System.in);
 	private static TimeBased_Alarms alarm = new TimeBased_Alarms();
+	private static VirtualTimer timer;
 
 	/**
 	 * This method handles timers.
@@ -24,24 +25,21 @@ public class Console{
 	 */
 	private static int timer() throws InterruptedException
 	{
-		VirtualTimer timer = new VirtualTimer();
-		Thread thread = new Thread(timer);
-
 		if(command.contains("start"))
 		{
+			Console.timer = new VirtualTimer();
 			if(!command.contains("delay"))
 				return -1;
 
-			timer.setDelay(Integer.parseInt(getParam("delay=")));
-			thread.start();
-			thread.join();
+			Console.timer.setDelay(Integer.parseInt(getParam("delay=")));
+			Console.timer.run();
 			return 0;
 		}
 
 		if(command.contains("stop"))
 		{
-			timer.stopTask();
-			thread.join();
+			Console.timer.stopTask();
+			Console.timer = null;
 			return 0;
 		}
 

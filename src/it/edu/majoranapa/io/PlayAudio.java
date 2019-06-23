@@ -7,7 +7,7 @@ import javax.sound.sampled.*;
 public class PlayAudio {
 	private Clip clip;
 	private FloatControl volumeController;
-	private String pthFile = "";
+	private File pthFile;
 	private AudioChannel channel;
 	
 	/**
@@ -18,7 +18,7 @@ public class PlayAudio {
 	 */
 	public PlayAudio(String filePath)
 	{
-		this.pthFile = filePath;
+		this.pthFile = new File(filePath);
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class PlayAudio {
 	public PlayAudio(String filePath, AudioChannel channel)
 	{
 		this.channel = channel;
-		this.pthFile = filePath;
+		this.pthFile = new File(filePath);
 	}
 	
 	/**
@@ -43,7 +43,9 @@ public class PlayAudio {
 	 */
 	public void setPath(String filePath)
 	{
-		this.pthFile = filePath;
+		if(pthFile != null)
+			pthFile = null;
+		this.pthFile = new File(filePath);
 	}
 
 	/**
@@ -54,13 +56,12 @@ public class PlayAudio {
 		try 
 		{
 			this.clip = AudioSystem.getClip();
-			File f = new File(this.pthFile);
-			if(!f.isFile())
+			if(!pthFile.isFile())
 			{
 				System.err.println("Error: file not found!!");
 				return;
 			}
-			AudioInputStream inStream = AudioSystem.getAudioInputStream(new File(pthFile).getAbsoluteFile());
+			AudioInputStream inStream = AudioSystem.getAudioInputStream(pthFile.getAbsoluteFile());
 	        clip.open(inStream);
 	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 	        this.setLocalAudioVolume(this.getAudioVolume());
@@ -72,6 +73,17 @@ public class PlayAudio {
 			e.printStackTrace();
 		}
 		return;
+	}
+	
+	/**
+	 * This method allows to stop the audio
+	 */
+	public void stopAudio()
+	{
+		if(clip.isActive())
+			clip.stop();
+		clip.flush();
+		clip.close();
 	}
 	
 	/**
@@ -150,5 +162,23 @@ public class PlayAudio {
 	public float getAudioVolumePercentage()
 	{
 		return (this.getAudioVolume() + 80) * 100 / 86;
+	}
+	
+	/**
+	 * Use this method to get the current state of the clip
+	 * @return
+	 * 0 indicates that the clip is playing an audio, 1 indicates
+	 * that the clip is ready to play but isn't playing any audio.
+	 */
+	public int getClipState()
+	{
+		if(clip != null)
+		{
+			if(clip.isActive())
+				return 0;
+			if(clip.isRunning())
+				return 1;
+		}		
+		return -1;
 	}
 }
