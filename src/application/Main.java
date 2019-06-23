@@ -2,6 +2,7 @@ package application;
 	
 import java.util.List;
 
+import it.edu.majoranapa.SystemInfo;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -17,7 +18,9 @@ public class Main extends Application{
 	          public void handle(WindowEvent e) {
 	              System.exit(0);
 	          }
-	    });		
+	    });	
+		SystemInfo info = new SystemInfo();
+		info.start();
 		try {
 			SceneSwitcher switcher = new SceneSwitcher(primaryStage);
 			switcher.init(list);

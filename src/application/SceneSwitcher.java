@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import application.controller.AppBarThread;
 import application.controller.ControllerList;
 import application.controller.TimerController;
 
@@ -15,6 +16,7 @@ public class SceneSwitcher {
 	private Parent root;
 	private Stage primaryStage;
 	private Scene mainScene;
+	private AppBarThread appbarManager;
 
 	public SceneSwitcher(Stage primaryStage)
 	{
@@ -34,6 +36,7 @@ public class SceneSwitcher {
 		root = null;
 		ControllerList.switcher = this;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+		appbarManager = new AppBarThread();
 
 		try {
 			root = loader.load();
@@ -50,6 +53,7 @@ public class SceneSwitcher {
 		primaryStage.setScene(mainScene);
 
 
+		appbarManager.start();
 		int ret = 0;
 		if(args.size() > 0)
 			switch(args.get(0))

@@ -9,7 +9,7 @@
    <children>
       <AnchorPane id="notification-bar" fx:id="notificationBar" maxHeight="25.0" minHeight="30.0" minWidth="720.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="346.0" layoutY="6.0" style="-fx-background-color: transparent;" text="00:00" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="6.0" />
+            <Label fx:id="systemTime" layoutX="346.0" layoutY="6.0" style="-fx-background-color: transparent;" text="00:00" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="6.0" />
          </children>
       </AnchorPane>
       <SubScene fx:id="app_viewport" height="450.0" layoutY="30.0" width="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
