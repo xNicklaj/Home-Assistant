@@ -73,5 +73,7 @@ public class VirtualTimer implements Runnable{
 			task.killSession();
 		task.cancel();
 		timer.cancel();
+		task = null;
+		timer = null;
 	}
 }

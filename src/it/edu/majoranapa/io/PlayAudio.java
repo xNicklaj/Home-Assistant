@@ -76,14 +76,26 @@ public class PlayAudio {
 	}
 	
 	/**
-	 * This method allows to stop the audio
+	 * This method allows to stop the audio.
+	 * Note: This method does not free the memory.
 	 */
 	public void stopAudio()
 	{
 		if(clip.isActive())
 			clip.stop();
-		clip.flush();
+	}
+	
+	/**
+	 * This method allows to stop the audio, close the clip
+	 * and flush the clip buffer.
+	 */
+	public void shredAudio()
+	{
+		if(clip.isActive())
+			clip.stop();
 		clip.close();
+		clip.flush();
+		clip = null;
 	}
 	
 	/**

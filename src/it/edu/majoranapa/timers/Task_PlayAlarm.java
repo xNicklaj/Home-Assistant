@@ -45,11 +45,13 @@ public class Task_PlayAlarm extends TimerTask{
 			return -1;
 	}
 	/**
-	 * Use this method to kill the session
+	 * Use this method to kill and deallocate the session.
 	 */
 	public void killSession()
 	{
-		session.stopAudio();
+		session.shredAudio();
+		session = null;
+		tone = null;
 	}
 	
 	/**
