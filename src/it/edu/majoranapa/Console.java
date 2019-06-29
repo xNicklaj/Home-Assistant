@@ -2,9 +2,11 @@ package it.edu.majoranapa;
 
 import java.util.Scanner;
 import it.edu.majoranapa.timers.*;
-import it.edu.majoranapa.io.*;
 import it.edu.majoranapa.network.*;
 import it.edu.majoranapa.customplayer.*;
+import it.edu.majoranapa.kernel.*;
+import it.edu.majoranapa.lists.Bill;
+import it.edu.majoranapa.lists.BillType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaException;
 
@@ -35,13 +37,13 @@ public class Console{
 			Console.timer.run();
 			return 0;
 		}
-
 		if(command.contains("stop"))
 		{
 			Console.timer.stopTask();
 			Console.timer = null;
 			return 0;
 		}
+		
 
 		return -1;
 	}
@@ -95,6 +97,27 @@ public class Console{
 			return alarm.setTime(getParam("time="));
 		}
 
+		return -1;
+	}
+	
+	private static int bill()
+	{
+		if(command.contains("add"))
+		{
+			Bill bill = new Bill(getParam("name="), BillType.valueOf(getParam("type=").toUpperCase()), Double.parseDouble(getParam("value=")), Integer.parseInt(getParam("recurrency=")));
+			Userdata.bills.addBill(bill);
+			return 0;
+		}
+		else if(command.contains("remove"))
+		{
+			return Userdata.bills.removeBill(Integer.parseInt(getParam("index=")));
+		}
+		if(command.contains("show"))
+		{
+			System.out.println(Userdata.bills.toString());
+			return 0;
+		}
+		
 		return -1;
 	}
 
@@ -260,6 +283,8 @@ public class Console{
 			
 			else if(command.substring(0, 5).contains("net"))
 				return lastReturnValue = network();
+			else if(command.substring(0, 5).contains("bill"))
+				return lastReturnValue = bill();
 
 		}
 		catch(Exception e)

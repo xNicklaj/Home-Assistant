@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="450.0" minWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MapsController">
+   <children>
+      <GoogleMapView fx:id="mapView" layoutY="-90.0" prefHeight="510.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton id="back-button" fx:id="backButton_BG" layoutX="14.0" layoutY="14.0" minHeight="60.0" minWidth="60.0" onMouseClicked="#appClose" text=" ">
+         <graphic>
+            <OctIconView fx:id="backButton_Icon" glyphName="CHEVRON_LEFT" size="48" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

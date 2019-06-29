@@ -8,9 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import application.controller.AppBarThread;
-import application.controller.ControllerList;
-import application.controller.TimerController;
+import application.controller.*;
 
 public class SceneSwitcher {
 	private Parent root;
@@ -61,6 +59,9 @@ public class SceneSwitcher {
 			case "timer":
 				ret = this.switchToTimerScreen();
 				break;
+			case "maps":
+				ret = this.switchToMapsScreen();
+				break;
 			}
 		else
 			ret = this.switchToHomeScreen();
@@ -99,6 +100,26 @@ public class SceneSwitcher {
 		ControllerList.timerController = (TimerController) loader.getController();
 		ControllerList.mainController.getApp_viewport().setRoot(test);
 		ControllerList.mainController.getApp_viewport().getScene().getStylesheets().add(getClass().getResource("css/Timer.css").toExternalForm());
+		return 0;
+	}
+	
+	public int switchToMapsScreen()
+	{
+		Parent test = null;
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Maps.fxml"));
+		try {
+			test = (Parent) loader.load();
+		} catch (IOException e) {
+			System.out.println(e.getClass().getName());
+			e.printStackTrace();
+		}
+		
+		ControllerList.mapsController = (MapsController) loader.getController();
+		ControllerList.mapsController.mapInitialized();	
+		
+		
+		ControllerList.mainController.getApp_viewport().setRoot(test);
+		ControllerList.mainController.getApp_viewport().getScene().getStylesheets().add(getClass().getResource("css/Maps.css").toExternalForm());
 		return 0;
 	}
 

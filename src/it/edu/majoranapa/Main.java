@@ -1,10 +1,9 @@
 package it.edu.majoranapa;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import it.edu.majoranapa.io.IniLocalLoader;
+
+import it.edu.majoranapa.kernel.IniLocalLoader;
 import it.edu.majoranapa.network.DHCPManager;
 import it.edu.majoranapa.network.SocketIO;
 
@@ -13,8 +12,8 @@ public class Main {
 	{
 		Thread server = new Thread(new SocketIO(3050));
 		server.start(); // Start server listening
+		Userdata.load();
 		try {
-			DHCPManager.getNetworkScan();
 			IniLocalLoader.iniLoad();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

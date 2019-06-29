@@ -3,7 +3,6 @@ package application.controller;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.octicons.OctIconView;
 import it.edu.majoranapa.Console;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -45,7 +44,7 @@ public class TimerController extends AppController {
 	private TimerBackgroundRegulatorThread regulator;
 
 	@FXML
-	void setTimer(ActionEvent event) {
+	private void setTimer(ActionEvent event) {
 		int csec = Integer.parseInt(timer_sec.getText());
 		int cmin = Integer.parseInt(timer_min.getText());
 		if(event.getSource() == prompt_01)
@@ -88,7 +87,7 @@ public class TimerController extends AppController {
 	}
 
 	@FXML
-	void timer_start(ActionEvent event) {
+	private void timer_start(ActionEvent event) {
 		if(timer_button.getText().equals("Start"))
 		{
 			int delay = 60*Integer.parseInt(timer_min.getText()) + Integer.parseInt(timer_sec.getText());

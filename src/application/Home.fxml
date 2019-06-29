@@ -1,12 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane fx:id="rootObject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HomeController">
    <children>
-      <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" layoutX="24.0" layoutY="25.0" onMouseClicked="#appOpen_Timer" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
-      <MaterialDesignIconView glyphName="TIMER" layoutX="38.0" layoutY="81.0" onMouseClicked="#appOpen_Timer" size="48" />
+      <GridPane alignment="CENTER" minHeight="450.0" minWidth="720.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Group>
+               <children>
+                  <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" onMouseClicked="#appOpen_Timer" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
+                  <MaterialDesignIconView glyphName="TIMER" layoutX="13.0" layoutY="55.0" onMouseClicked="#appOpen_Timer" size="48" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Group>
+            <Group GridPane.columnIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" onMouseClicked="#appOpen_Map" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
+                  <MaterialDesignIconView glyphName="MAP" layoutX="13.0" layoutY="55.0" onMouseClicked="#appOpen_Map" size="48" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Group>
+            <Group GridPane.columnIndex="2">
+               <children>
+                  <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" onMouseClicked="#appOpen_List" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
+                  <MaterialDesignIconView glyphName="VIEW_LIST" layoutX="13.0" layoutY="55.0" onMouseClicked="#appOpen_List" size="48" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Group>
+            <Group GridPane.columnIndex="3">
+               <children>
+                  <Rectangle arcHeight="5.0" fill="DODGERBLUE" height="75.0" onMouseClicked="#appOpen_List" stroke="BLACK" strokeType="INSIDE" styleClass="icon-tile" width="75.0" />
+                  <MaterialDesignIconView glyphName="CASH_MULTIPLE" layoutX="13.0" layoutY="55.0" onMouseClicked="#appOpen_List" size="48" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Group>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

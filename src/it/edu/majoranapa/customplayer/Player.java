@@ -1,9 +1,9 @@
 package it.edu.majoranapa.customplayer;
 
 import javafx.scene.media.MediaPlayer;
+import it.edu.majoranapa.kernel.Volume;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
-import it.edu.majoranapa.io.Volume;
 
 public class Player{
 	private MediaPlayer player;

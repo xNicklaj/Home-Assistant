@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import it.edu.majoranapa.SystemInfo;

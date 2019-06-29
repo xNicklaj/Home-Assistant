@@ -2,7 +2,7 @@ package it.edu.majoranapa.lists;
 
 import java.io.IOException;
 
-import it.edu.majoranapa.io.IniListLoader;
+import it.edu.majoranapa.kernel.IniListLoader;
 
 public class List {
 	private String name = "";
