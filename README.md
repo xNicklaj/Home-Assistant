@@ -5,5 +5,4 @@ Feel free to fork and develop your own solution, we believe in open source.
 ### Homescreen
 ![Homescreen](screenshots/Home.jpg)
 ### Timer app
-![Timer_off](screenshots/Timer.jpg)
 ![Timer_on](screenshots/Timer.gif)
