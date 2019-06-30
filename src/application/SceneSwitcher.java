@@ -64,9 +64,23 @@ public class SceneSwitcher {
 				break;
 			}
 		else
-			ret = this.switchToHomeScreen();
+			ret = this.lock();
 		primaryStage.show();
 		return ret;
+	}
+	
+	public int lock()
+	{
+		Parent test = null;
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+		try {
+			test = (Parent) loader.load();
+		} catch (IOException e) {
+			System.out.println(e.getClass().getName());
+			e.printStackTrace();
+		}
+		ControllerList.mainController.getApp_viewport().setRoot(test);
+		return 0;
 	}
 
 	public int switchToHomeScreen(){

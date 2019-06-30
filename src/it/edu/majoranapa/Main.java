@@ -12,6 +12,8 @@ public class Main {
 	{
 		Thread server = new Thread(new SocketIO(3050));
 		server.start(); // Start server listening
+		SystemInfo info = new SystemInfo();
+		info.start();
 		Userdata.load();
 		try {
 			IniLocalLoader.iniLoad();

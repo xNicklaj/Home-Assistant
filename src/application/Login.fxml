@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.controller.LoginController">
+   <children>
+      <AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="50.0" layoutY="50.0" minHeight="350.0" minWidth="620.0" prefHeight="200.0" prefWidth="200.0" styleClass="log-tile">
+               <effect>
+                  <DropShadow offsetX="-3.0" offsetY="3.0" />
+               </effect>
+               <children>
+                  <JFXTextField fx:id="usernameField" layoutX="190.0" layoutY="86.0" minWidth="240.0" onAction="#login" promptText="Nome utente" />
+                  <JFXPasswordField fx:id="passwordField" layoutX="190.0" layoutY="131.0" minWidth="240.0" onAction="#login" promptText="Password" />
+                  <JFXButton id="login-button" fx:id="loginButton" buttonType="RAISED" layoutX="260.0" layoutY="184.0" minHeight="32.0" minWidth="100.0" onAction="#login" styleClass="rounded-button" text="Login">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

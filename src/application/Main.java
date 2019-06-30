@@ -3,6 +3,7 @@ package application;
 import java.util.List;
 
 import it.edu.majoranapa.SystemInfo;
+import it.edu.majoranapa.Userdata;
 import it.edu.majoranapa.lists.Bill;
 import it.edu.majoranapa.lists.BillType;
 import javafx.application.Application;
@@ -23,9 +24,7 @@ public class Main extends Application{
 	    });	
 		SystemInfo info = new SystemInfo();
 		info.start();
-		
-		Bill bill = new Bill("Luce", BillType.ELECTRICITY, 12.3, 28);
-		bill.store();
+		Userdata.load();
 		
 		try {
 			SceneSwitcher switcher = new SceneSwitcher(primaryStage);

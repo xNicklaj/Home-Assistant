@@ -41,6 +41,7 @@ public class JSONParser<T> {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public T instance()
 	{
 		FileReader reader = null;

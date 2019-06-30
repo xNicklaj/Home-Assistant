@@ -7,6 +7,23 @@
 	-fx-background-size: 100% 100%;
 }
 
+.log-tile {
+	-fx-background-color: rgba(255, 255, 255, .8);
+}
+
+.jfx-text-field,.jfx-password-field {
+	-jfx-focus-color: #ff5722;
+}
+
+.rounded-button {
+	-fx-border-radius: 30em;
+	-fx-background-radius: 30em;
+}
+
+#login-button {
+	-fx-background-color: rgba(255, 255, 255, .8);
+}
+
 #notification-bar{
 	-fx-background-color: transparent;
 }
