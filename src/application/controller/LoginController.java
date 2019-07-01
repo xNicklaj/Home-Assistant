@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import it.edu.majoranapa.Profile;
+import it.edu.majoranapa.User;
 import it.edu.majoranapa.Userdata;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,20 +22,20 @@ public class LoginController {
     
     @FXML
     public void login(ActionEvent event) {
-    	if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty())
+    	if((Userdata.getLoginType() == User.USERANDPWD && usernameField.getText().isEmpty()) || passwordField.getText().isEmpty())
     	{
     		setError(usernameField);
     		setError(passwordField);
     		return;
     	}
     	
-    	if(usernameField.getStyle().equals("-jfx-unfocus-color: #d32f2f;"))
+    	if(Userdata.getLoginType() == User.USERANDPWD && usernameField.getStyle().equals("-jfx-unfocus-color: #d32f2f;"))
     		usernameField.setStyle("");
     	
     	if(passwordField.getStyle().equals("-jfx-unfocus-color: #d32f2f;"))
     		passwordField.setStyle("");
     	
-    	Profile profile = new Profile(usernameField.getText());
+    	User profile = new User(usernameField.getText());
     	profile.setPassword(passwordField.getText());
     	switch(Userdata.compareUsers(profile))
     	{
@@ -55,9 +55,14 @@ public class LoginController {
     			
     }
     
+    public void rmuser()
+    {
+    	this.usernameField.setVisible(false);
+    }
+    
     private boolean setError(JFXTextField field)
     {
-    	if(field.getText().isEmpty())
+    	if(Userdata.getLoginType() == User.USERANDPWD && field.getText().isEmpty())
     	{
     		field.setStyle("-jfx-unfocus-color: #d32f2f;");
     		return true;

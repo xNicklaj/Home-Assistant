@@ -76,6 +76,43 @@ public class PlayAudio {
 	}
 	
 	/**
+	 * This method allows a single playback of the clip. After its return, the Object will become unusable.
+	 * Use this if you want a temporary playback.
+	 */
+	public void playAudio()
+	{
+		try 
+		{
+			this.clip = AudioSystem.getClip();
+			if(!pthFile.isFile())
+			{
+				System.err.println("Error: file not found!!");
+				return;
+			}
+			AudioInputStream inStream = AudioSystem.getAudioInputStream(pthFile.getAbsoluteFile());
+	        clip.open(inStream);
+	        this.volumeController = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	        this.setLocalAudioVolume(this.getAudioVolume());
+	        LineListener listener = new LineListener() {
+	            public void update(LineEvent event) {
+	                    if (event.getType() != LineEvent.Type.STOP) {
+	                        return;
+	                    }
+	                    shredAudio();
+	            }
+	        };
+	        clip.addLineListener(listener);
+	        clip.start(); 
+		} 
+		catch (LineUnavailableException | UnsupportedAudioFileException | IOException e)
+		{
+			e.printStackTrace();
+		}
+		return;
+	}
+	
+	
+	/**
 	 * This method allows to stop the audio.
 	 * Note: This method does not free the memory.
 	 */

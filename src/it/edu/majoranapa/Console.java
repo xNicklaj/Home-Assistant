@@ -105,16 +105,16 @@ public class Console{
 		if(command.contains("add"))
 		{
 			Bill bill = new Bill(getParam("name="), BillType.valueOf(getParam("type=").toUpperCase()), Double.parseDouble(getParam("value=")), Integer.parseInt(getParam("recurrency=")));
-			Userdata.bills.addBill(bill);
+			Userdata.getBills().addBill(bill);
 			return 0;
 		}
 		else if(command.contains("remove"))
 		{
-			return Userdata.bills.removeBill(Integer.parseInt(getParam("index=")));
+			return Userdata.getBills().removeBill(Integer.parseInt(getParam("index=")));
 		}
 		if(command.contains("show"))
 		{
-			System.out.println(Userdata.bills.toString());
+			System.out.println(Userdata.getBills().toString());
 			return 0;
 		}
 		

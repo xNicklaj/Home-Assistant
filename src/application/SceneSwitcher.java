@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -9,6 +10,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import application.controller.*;
+import it.edu.majoranapa.User;
+import it.edu.majoranapa.Userdata;
+import it.edu.majoranapa.kernel.AudioChannel;
+import it.edu.majoranapa.kernel.PathFinder;
+import it.edu.majoranapa.kernel.PlayAudio;
 
 public class SceneSwitcher {
 	private Parent root;
@@ -72,21 +78,36 @@ public class SceneSwitcher {
 	public int lock()
 	{
 		Parent test = null;
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+		FXMLLoader loader = null;
+		if(new File(".\\database\\A3F86998515EC97DA8E37FFEAB323904\\7D97481B1FE66F4B51DB90DA7E794D9F.json").exists())
+			loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+		else
+			loader = new FXMLLoader(getClass().getResource("Signup.fxml"));
 		try {
 			test = (Parent) loader.load();
 		} catch (IOException e) {
 			System.out.println(e.getClass().getName());
 			e.printStackTrace();
 		}
+		if(Userdata.getLoginType() == User.PWDONLY)
+			if(new File(".\\database\\A3F86998515EC97DA8E37FFEAB323904\\7D97481B1FE66F4B51DB90DA7E794D9F.json").exists())
+				((LoginController) loader.getController()).rmuser();
+			else
+				((SignupController) loader.getController()).rmuser();
+		
 		ControllerList.mainController.getApp_viewport().setRoot(test);
 		return 0;
 	}
 
 	public int switchToHomeScreen(){
-		if(Thread.currentThread().getStackTrace()[2].getMethodName() == "appClose")
+		if(Thread.currentThread().getStackTrace()[2].getMethodName().contentEquals("appClose"))
 			ControllerList.mainController.getApp_viewport().getScene().getStylesheets().remove(ControllerList.mainController.getApp_viewport().getScene().getStylesheets().size() -1);
-		
+		else if(Thread.currentThread().getStackTrace()[2].getMethodName().equals("login"))
+		{
+			PlayAudio unlockSound = new PlayAudio(PathFinder.getResourcePath("/systemsounds/Unlock.wav"));
+			unlockSound.setAudioChannel(AudioChannel.SYSTEM);
+			unlockSound.playAudio();
+		}
 		Parent test = null;
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
 		try {
@@ -95,6 +116,7 @@ public class SceneSwitcher {
 			System.out.println(e.getClass().getName());
 			e.printStackTrace();
 		}
+		
 		ControllerList.mainController.getApp_viewport().setRoot(test);
 		ControllerList.mainController.getApp_viewport().getScene().getStylesheets().add(getClass().getResource("css/Home.css").toExternalForm());
 		return 0;

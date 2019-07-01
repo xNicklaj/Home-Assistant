@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SignupController">
+   <children>
+      <AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="50.0" layoutY="50.0" minHeight="350.0" minWidth="620.0" prefHeight="200.0" prefWidth="200.0" styleClass="log-tile">
+               <effect>
+                  <DropShadow offsetX="-3.0" offsetY="3.0" />
+               </effect>
+               <children>
+                  <JFXTextField fx:id="usernameField" layoutX="190.0" layoutY="86.0" minWidth="240.0" onAction="#login" promptText="Nome utente" />
+                  <JFXPasswordField fx:id="passwordField" layoutX="190.0" layoutY="131.0" minWidth="240.0" onAction="#login" onKeyTyped="#pwdCheck" promptText="Password" />
+                  <JFXButton id="login-button" fx:id="loginButton" buttonType="RAISED" layoutX="260.0" layoutY="184.0" minHeight="32.0" minWidth="100.0" onAction="#login" styleClass="rounded-button" text="Crea account">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </JFXButton>
+                  <AnchorPane layoutX="140.0" layoutY="243.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="243.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="La password deve:" />
+                        <Text layoutX="19.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno otto caratteri (MAX 16 caratteri)" />
+                        <Text layoutX="19.0" layoutY="32.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno una lettera maiuscola ed una lettera minuscola" />
+                        <Text layoutX="19.0" layoutY="49.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno un numero" />
+                        <MaterialDesignIconView fx:id="lengthCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="17.69921875" size="14" />
+                        <MaterialDesignIconView fx:id="charactersCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="34.69921875" size="14" />
+                        <MaterialDesignIconView fx:id="numberCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="50.69921875" size="14" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
