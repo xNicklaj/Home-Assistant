@@ -6,7 +6,7 @@ import it.edu.majoranapa.kernel.*;
 
 public class Task_PlayAlarm extends TimerTask{
 	protected PlayAudio session;
-	protected String tone = "AlarmTone.wav";
+	protected String tone = "Cuckoo_clock.wav";
 	protected static PathFinder finder = new PathFinder();
 	protected final AudioChannel channel = AudioChannel.ALARM;
 	
@@ -16,7 +16,7 @@ public class Task_PlayAlarm extends TimerTask{
 	 */
 	public void run()
 	{
-		session = new PlayAudio(PathFinder.getResourcePath(tone));
+		session = new PlayAudio(PathFinder.getResourcePath("/alarms/" + tone));
 		session.setAudioChannel(channel);
 		session.startAudio();
 		
