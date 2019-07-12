@@ -1,8 +1,9 @@
 package application.controller;
 
+import org.gitproject.homeassistant.Console;
+
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.octicons.OctIconView;
-import it.edu.majoranapa.Console;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

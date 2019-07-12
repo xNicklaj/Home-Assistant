@@ -2,10 +2,11 @@ package application;
 	
 import java.util.List;
 
-import it.edu.majoranapa.SystemInfo;
-import it.edu.majoranapa.Userdata;
-import it.edu.majoranapa.lists.Bill;
-import it.edu.majoranapa.lists.BillType;
+import org.gitproject.homeassistant.SystemInfo;
+import org.gitproject.homeassistant.Userdata;
+import org.gitproject.homeassistant.lists.Bill;
+import org.gitproject.homeassistant.lists.BillType;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
