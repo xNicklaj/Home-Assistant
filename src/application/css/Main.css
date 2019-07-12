@@ -20,6 +20,12 @@
 	-fx-background-radius: 30em;
 }
 
+.back-button-background {
+	-fx-border-radius: 30em;
+	-fx-background-radius: 30em;
+	-fx-background-color: rgba(0, 0, 0, .1);
+}
+
 #login-button {
 	-fx-background-color: rgba(255, 255, 255, .8);
 }

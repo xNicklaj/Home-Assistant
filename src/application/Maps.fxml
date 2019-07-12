@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import de.jensd.fx.glyphs.octicons.OctIconView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane minHeight="450.0" minWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MapsController">
+<AnchorPane minHeight="480.0" minWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MapsController">
    <children>
-      <GoogleMapView fx:id="mapView" layoutY="-90.0" prefHeight="510.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <JFXButton id="back-button" fx:id="backButton_BG" layoutX="14.0" layoutY="14.0" minHeight="60.0" minWidth="60.0" onMouseClicked="#appClose" text=" ">
-         <graphic>
-            <OctIconView fx:id="backButton_Icon" glyphName="CHEVRON_LEFT" size="48" />
-         </graphic>
-      </JFXButton>
+      <WebView fx:id="mapsViewport" minHeight="450.0" minWidth="720.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+      <AnchorPane layoutX="-23.0" layoutY="420.0" minHeight="60.0" minWidth="75.0" onMouseClicked="#appClose" styleClass="back-button-background">
+         <children>
+            <OctIconView fx:id="back_button" fill="WHITE" glyphName="CHEVRON_LEFT" layoutX="36.0" layoutY="45.0" onMouseClicked="#appClose" size="48" wrappingWidth="19.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="6.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

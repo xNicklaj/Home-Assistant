@@ -7,54 +7,66 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="450.0" minWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TimerController">
+<AnchorPane minHeight="480.0" minWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TimerController">
    <children>
       <AnchorPane id="background-filled-pane" fx:id="background_fill_state" layoutY="280.0" minWidth="720.0" prefHeight="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <JFXButton fx:id="prompt_01" layoutX="82.0" layoutY="240.0" onAction="#setTimer" styleClass="default-timers-button" text="30 sec" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="82.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="prompt_02" layoutX="200.0" layoutY="240.0" onAction="#setTimer" styleClass="default-timers-button" text="1 min" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="200.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="prompt_03" layoutX="314.0" layoutY="240.0" onAction="#setTimer" styleClass="default-timers-button" text="5 min" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="314.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="prompt_04" layoutX="416.0" layoutY="240.0" onAction="#setTimer" styleClass="default-timers-button" text="10 min" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="416.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="prompt_05" layoutX="545.0" layoutY="240.0" onAction="#setTimer" styleClass="default-timers-button" text="20 min" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="545.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton id="start-button-stopped" fx:id="timer_button" buttonType="RAISED" layoutX="304.0" layoutY="313.0" onAction="#timer_start" prefHeight="112.0" prefWidth="112.0" text="Start">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXButton>
-      <OctIconView fx:id="back_button" fill="WHITE" glyphName="CHEVRON_LEFT" layoutX="14.0" layoutY="53.0" onMouseClicked="#appClose" size="48" wrappingWidth="19.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <TextField fx:id="timer_min" alignment="CENTER_RIGHT" layoutX="238.0" layoutY="51.0" prefHeight="137.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="00" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="51.0">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="timer_sec" layoutX="340.0" layoutY="51.0" prefHeight="137.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="00" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="51.0">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </TextField>
-      <Label alignment="CENTER" layoutX="348.0" layoutY="73.0" prefHeight="86.0" prefWidth="25.0" text=":" textFill="WHITE" AnchorPane.leftAnchor="348.0" AnchorPane.rightAnchor="347.0" AnchorPane.topAnchor="73.0">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="82.0" layoutY="240.0">
+         <children>
+            <JFXButton fx:id="prompt_01" onAction="#setTimer" styleClass="default-timers-button" text="30 sec">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="prompt_02" layoutX="118.0" onAction="#setTimer" styleClass="default-timers-button" text="1 min">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="prompt_03" layoutX="232.0" onAction="#setTimer" styleClass="default-timers-button" text="5 min">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="prompt_04" layoutX="334.0" onAction="#setTimer" styleClass="default-timers-button" text="10 min">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="prompt_05" layoutX="463.0" onAction="#setTimer" styleClass="default-timers-button" text="20 min">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="start-button-stopped" fx:id="timer_button" buttonType="RAISED" layoutX="222.0" layoutY="73.0" onAction="#timer_start" prefHeight="112.0" prefWidth="112.0" text="Start">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="238.0" layoutY="51.0">
+         <children>
+            <TextField fx:id="timer_min" alignment="CENTER_RIGHT" prefHeight="137.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="00">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="timer_sec" layoutX="102.0" prefHeight="137.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="00">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="110.0" layoutY="22.0" prefHeight="86.0" prefWidth="25.0" text=":" textFill="WHITE">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-23.0" layoutY="420.0" minHeight="60.0" minWidth="75.0" onMouseClicked="#appClose" styleClass="back-button-background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-23.0" AnchorPane.rightAnchor="668.0">
+         <children>
+            <OctIconView fx:id="back_button" fill="WHITE" glyphName="CHEVRON_LEFT" layoutX="36.0" layoutY="45.0" onMouseClicked="#appClose" size="48" wrappingWidth="19.0" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="6.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

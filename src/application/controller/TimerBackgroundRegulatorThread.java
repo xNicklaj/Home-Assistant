@@ -24,7 +24,7 @@ public class TimerBackgroundRegulatorThread extends Thread{
 	public void run()
 	{
 		do {
-			TimerBackgroundRegulator reg = new TimerBackgroundRegulator((seconds - 0.5)*16.666666666667, height);
+			TimerBackgroundRegulator reg = new TimerBackgroundRegulator((seconds)*16.666666666667, height);
 			try {
 				Thread.sleep(Double.valueOf(16.666666666667).longValue());
 			} catch (InterruptedException e) {

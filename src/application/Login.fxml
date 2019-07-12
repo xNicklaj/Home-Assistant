@@ -7,10 +7,9 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.controller.LoginController">
+<AnchorPane minHeight="480.0" minWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
    <children>
-      <AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="30.0" minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
             <AnchorPane layoutX="50.0" layoutY="50.0" minHeight="350.0" minWidth="620.0" prefHeight="200.0" prefWidth="200.0" styleClass="log-tile">
                <effect>

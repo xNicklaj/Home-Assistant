@@ -1,8 +1,9 @@
 package application.controller;
 
+import org.gitproject.homeassistant.Console;
+
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.octicons.OctIconView;
-import it.edu.majoranapa.Console;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -96,7 +97,7 @@ public class TimerController extends AppController {
 				Console.newCommand("timer start delay=" + delay);
 				timer_button.setId("start-button-started");
 				timer_button.setText("Stop");
-				this.background_fill_state.setPrefHeight(this.background_fill_state.getParent().getScene().getHeight() - 30);
+				this.background_fill_state.setPrefHeight(this.background_fill_state.getParent().getScene().getHeight());
 				regulator = new TimerBackgroundRegulatorThread(delay, this.background_fill_state.getParent().getScene().getHeight());
 				regulator.start();
 				this.prompt_01.setDisable(true);

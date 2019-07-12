@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane minHeight="450.0" minWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.controller.BillController">
+   <children>
+      <AnchorPane layoutX="5.0" layoutY="-1.0" minHeight="380.0" minWidth="720.0" styleClass="main-panel" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fx:id="billName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="70.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prossima Scadenza:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="123.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo di bolletta:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="158.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <JFXButton id="back-button" fx:id="backButton_BG" contentDisplay="RIGHT" graphicTextGap="25.0" layoutX="-21.0" layoutY="6.0" minHeight="60.0" minWidth="60.0" onMouseClicked="#appClose" prefHeight="50.0" prefWidth="75.0" styleClass="rounded-button" text=" " AnchorPane.leftAnchor="-21.0" AnchorPane.topAnchor="6.0">
+               <graphic>
+                  <OctIconView fx:id="backButton_Icon" glyphName="CHEVRON_LEFT" size="40" />
+               </graphic>
+            </JFXButton>
+            <Text fx:id="expireDate" layoutX="299.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scadenza" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="127.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="billType" layoutX="300.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="162.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="380.0" minHeight="70.0" minWidth="720.0" styleClass="bottom-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fx:id="billPrice" layoutX="15.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prezzo" AnchorPane.bottomAnchor="17.5" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="17.5">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="checkButton" layoutX="625.0" layoutY="355.0" styleClass="rounded-button" text="​" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="45.0">
+         <graphic>
+            <MaterialDesignIconView glyphName="CHECK" layoutX="-4.0" size="30" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

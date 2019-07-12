@@ -2,7 +2,7 @@ package application.controller;
 
 import java.time.format.DateTimeFormatter;
 
-import it.edu.majoranapa.SystemInfo;
+import org.gitproject.homeassistant.SystemInfo;
 
 public class AppBarUpdater implements Runnable{
 	private DateTimeFormatter formatter;

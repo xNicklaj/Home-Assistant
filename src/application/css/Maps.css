@@ -2,3 +2,11 @@
 	-fx-background-color: rgba(2,136,209, .8);
 	-fx-background-radius: 30em;
 }
+
+#notification-bar{
+	-fx-background-color: rgba(255, 255, 255, 1);
+}
+
+#notification-bar .label{
+	-fx-text-fill: black;
+}

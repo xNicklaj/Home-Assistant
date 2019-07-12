@@ -14,7 +14,7 @@ public class TimerBackgroundRegulator implements Runnable{
 
 	@Override
 	public void run() {
-		ControllerList.timerController.getBackground_fill_state().setPrefHeight(ControllerList.timerController.getBackground_fill_state().getPrefHeight() - this.ratio/4);
+		ControllerList.timerController.getBackground_fill_state().setPrefHeight(ControllerList.timerController.getBackground_fill_state().getPrefHeight() - this.ratio/3.5);
 		if(TimerBackgroundRegulatorThread.spentTicks == 60)
 		{
 			if(Integer.parseInt(ControllerList.timerController.getTimer_sec().getText()) > 0)

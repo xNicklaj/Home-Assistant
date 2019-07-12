@@ -1,11 +1,12 @@
 package application.controller;
 
+import org.gitproject.homeassistant.User;
+import org.gitproject.homeassistant.Userdata;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import it.edu.majoranapa.User;
-import it.edu.majoranapa.Userdata;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 

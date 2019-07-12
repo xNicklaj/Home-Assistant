@@ -20,5 +20,7 @@
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.26.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.8.5.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections4-4.3.jar"/>
+	<classpathentry kind="lib" path="lib/maxmind-db-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

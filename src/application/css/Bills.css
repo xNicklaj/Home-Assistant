@@ -1,0 +1,14 @@
+.rounded-button {
+	-fx-min-width: 50px;
+	-fx-min-height: 50px;
+	-fx-background-radius: 25em;
+	-fx-background-color: #009688;
+}
+
+.bottom-panel {
+	-fx-background-color: #9C27B0;
+}
+
+.main-panel {
+	-fx-background-color: #FFFFFF;
+}

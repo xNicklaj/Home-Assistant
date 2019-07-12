@@ -1,6 +1,6 @@
 package application.controller;
 
-import it.edu.majoranapa.SystemInfo;
+import org.gitproject.homeassistant.SystemInfo;
 
 public class ThreadsList {
 	public static TimerBackgroundRegulatorThread timerThread = null;

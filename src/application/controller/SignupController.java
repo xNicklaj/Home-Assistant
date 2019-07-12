@@ -1,11 +1,12 @@
 package application.controller;
 
+import org.gitproject.homeassistant.User;
+import org.gitproject.homeassistant.Userdata;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-import it.edu.majoranapa.User;
-import it.edu.majoranapa.Userdata;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
@@ -46,11 +47,14 @@ public class SignupController {
     	if(passwordField.getStyle().equals("-jfx-unfocus-color: #d32f2f;"))
     		passwordField.setStyle("");
     	
-    	User profile = new User(usernameField.getText());
-    	profile.setPassword(passwordField.getText());
+    	if(isValid)
+    	{
+    		User profile = new User(usernameField.getText());
+    		profile.setPassword(passwordField.getText());
     
-    	if(Userdata.compareUsers(profile) == 0)
-    		ControllerList.switcher.switchToHomeScreen();
+    		if(Userdata.compareUsers(profile) == 0)
+    			ControllerList.switcher.switchToHomeScreen();
+    	}
     }
     
     @FXML

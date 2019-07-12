@@ -3,7 +3,7 @@
 }
 
 #notification-bar{
-	-fx-background-color: #53606d;
+	-fx-background-color: rgba(0, 0, 0, .35);
 }
 
 #start-button-stopped {

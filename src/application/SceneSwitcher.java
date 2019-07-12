@@ -4,17 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.gitproject.homeassistant.User;
+import org.gitproject.homeassistant.Userdata;
+import org.gitproject.homeassistant.kernel.AudioChannel;
+import org.gitproject.homeassistant.kernel.PathFinder;
+import org.gitproject.homeassistant.kernel.PlayAudio;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import application.controller.*;
-import it.edu.majoranapa.User;
-import it.edu.majoranapa.Userdata;
-import it.edu.majoranapa.kernel.AudioChannel;
-import it.edu.majoranapa.kernel.PathFinder;
-import it.edu.majoranapa.kernel.PlayAudio;
 
 public class SceneSwitcher {
 	private Parent root;
@@ -151,9 +152,6 @@ public class SceneSwitcher {
 		}
 		
 		ControllerList.mapsController = (MapsController) loader.getController();
-		ControllerList.mapsController.mapInitialized();	
-		
-		
 		ControllerList.mainController.getApp_viewport().setRoot(test);
 		ControllerList.mainController.getApp_viewport().getScene().getStylesheets().add(getClass().getResource("css/Maps.css").toExternalForm());
 		return 0;
