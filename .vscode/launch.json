@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "application.Main",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ArrayTester<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "com.lynden.gmapsfx.ArrayTester",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ClusteredMainApp<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "com.lynden.gmapsfx.ClusteredMainApp",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MainApp<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "com.lynden.gmapsfx.MainApp",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MainApp2<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "com.lynden.gmapsfx.MainApp2",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TimezoneDump<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "com.mysql.cj.jdbc.admin.TimezoneDump",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Digest<HomeAssistant>",
+            "request": "launch",
+            "mainClass": "org.apache.commons.codec.cli.Digest",
+            "projectName": "HomeAssistant"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<HomeAssistant>(1)",
+            "request": "launch",
+            "mainClass": "org.gitproject.homeassistant.Main",
+            "projectName": "HomeAssistant"
+        }
+    ]
+}

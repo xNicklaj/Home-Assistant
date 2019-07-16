@@ -7,6 +7,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane minHeight="450.0" minWidth="720.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SignupController">
@@ -27,10 +28,16 @@
                   </JFXButton>
                   <AnchorPane layoutX="140.0" layoutY="243.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="243.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="La password deve:" />
-                        <Text layoutX="19.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno otto caratteri (MAX 16 caratteri)" />
-                        <Text layoutX="19.0" layoutY="32.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno una lettera maiuscola ed una lettera minuscola" />
-                        <Text layoutX="19.0" layoutY="49.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno un numero" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="La password deve:" />
+                        <Text layoutX="19.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contenere almeno otto caratteri (MAX 16 caratteri)" />
+                        <Text layoutX="19.0" layoutY="32.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno una lettera maiuscola ed una lettera minuscola">
+                           <font>
+                              <Font name="Roboto Medium" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="19.0" layoutY="49.94921875" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenere almeno un numero">
+                           <font>
+                              <Font name="Roboto Medium" size="12.0" />
+                           </font></Text>
                         <MaterialDesignIconView fx:id="lengthCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="17.69921875" size="14" />
                         <MaterialDesignIconView fx:id="charactersCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="34.69921875" size="14" />
                         <MaterialDesignIconView fx:id="numberCheck" fill="RED" glyphName="WINDOW_CLOSE" layoutY="50.69921875" size="14" />

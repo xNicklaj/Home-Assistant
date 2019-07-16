@@ -19,7 +19,7 @@ import de.jensd.fx.glyphs.octicons.OctIconView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-public class MapsController extends AppController implements Initializable, MapComponentInitializedListener{
+public class MapsController extends AppController{
 
     @FXML
     private GoogleMapView mapView;
@@ -32,36 +32,35 @@ public class MapsController extends AppController implements Initializable, MapC
     
     private GoogleMap map;
 
-	@Override
-	public void mapInitialized() {
-		mapView.addMapInializedListener(this);
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		File database = new File("../../../MySql Database/GeoLite2-City.mmdb");
-		CityResponse response = null;
-		try {
-			DatabaseReader dbReader = new DatabaseReader.Builder(database).build();
-			response = dbReader.city(InetAddress.getLocalHost());
-		} catch (IOException | GeoIp2Exception e) {
-			System.out.println(e.getClass().getName());
-			e.printStackTrace();
-		}
-		LatLong currentLocation = new LatLong(response.getLocation().getLongitude(), response.getLocation().getLatitude());
-		
-		MapOptions mapOptions = new MapOptions();
-		mapOptions.center(currentLocation)
-        .overviewMapControl(false)
-        .panControl(false)
-        .rotateControl(false)
-        .scaleControl(false)
-        .streetViewControl(false)
-        .zoomControl(false)
-        .zoom(12);
-		
-		map = mapView.createMap(mapOptions);
-		
+	public void initialize() {
+		mapView.addMapInializedListener(new MapComponentInitializedListener() {
+			@Override
+			public void mapInitialized() {
+				File database = new File("../../../database/geolite/GeoLite2-City.mmdb");
+				CityResponse response = null;
+				try {
+					DatabaseReader dbReader = new DatabaseReader.Builder(database).build();
+					response = dbReader.city(InetAddress.getLocalHost());
+				} catch (IOException | GeoIp2Exception e) {
+					System.out.println(e.getClass().getName());
+					e.printStackTrace();
+				}
+				LatLong currentLocation = new LatLong(response.getLocation().getLongitude(), response.getLocation().getLatitude());
+				
+				MapOptions mapOptions = new MapOptions();
+				mapOptions.center(currentLocation)
+		        .overviewMapControl(false)
+		        .panControl(false)
+		        .rotateControl(false)
+		        .scaleControl(false)
+		        .streetViewControl(false)
+		        .zoomControl(false)
+		        .zoom(12);
+				
+				map = mapView.createMap(mapOptions);
+				
+			}
+		});
 	}
 
 }

@@ -152,9 +152,6 @@ public class SceneSwitcher {
 		}
 		
 		ControllerList.mapsController = (MapsController) loader.getController();
-		ControllerList.mapsController.mapInitialized();	
-		
-		
 		ControllerList.mainController.getApp_viewport().setRoot(test);
 		ControllerList.mainController.getApp_viewport().getScene().getStylesheets().add(getClass().getResource("css/Maps.css").toExternalForm());
 		return 0;

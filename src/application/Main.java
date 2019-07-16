@@ -11,11 +11,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.event.EventHandler;
+import javafx.scene.text.Font;
 
 public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {
-		
+		Font.loadFont(getClass().getResourceAsStream("../../resources/fonts/Roboto-Medium.ttf"), 12);
 		Parameters params = getParameters();
 		List<String> list = params.getRaw();
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

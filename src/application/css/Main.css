@@ -1,5 +1,9 @@
-.text{
-	-fx-text-fill: white;
+@font-face {
+	src: url(@@../../../../../resources/fonts/Roboto-Medium.ttf);
+}
+
+.text {
+	-fx-font-family: "Roboto Medium";
 }
 
 .background-pane{
